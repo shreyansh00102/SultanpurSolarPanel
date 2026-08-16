@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- BROWSER TAB TITLE & SEO METADATA -->
+  <title>Solar Panel Basics 101 | Complete Guide to Solar Energy & Photovoltaics</title>
+  <meta name="title" content="Solar Panel Basics 101 | Complete Guide to Solar Energy & Photovoltaics" />
+  <meta name="description" content="Master solar energy basics! Learn how solar panels work (Photovoltaic effect), compare Monocrystalline vs Polycrystalline panels, inspect solar system components, calculate roof solar output & PM Surya Ghar subsidies." />
+  <meta name="keywords" content="Solar Panel Basics, How solar panels work, Photovoltaic effect explained, Monocrystalline vs Polycrystalline, Solar system components, Solar inverter battery, PM Surya Ghar subsidy basics, Solar calculator INR, Solar panel types comparison" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Solar Panel Basics 101" />
+
+  <!-- Solar Sun Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F97316' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='4' fill='%23FCD34D'/><path d='M12 2v2'/><path d='M12 20v2'/><path d='m4.93 4.93 1.41 1.41'/><path d='m17.66 17.66 1.41 1.41'/><path d='M2 12h2'/><path d='M20 12h2'/><path d='m6.34 17.66-1.41 1.41'/><path d='m19.07 4.93-1.41 1.41'/></svg>" />
+
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Outfit', 'Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            charcoal: '#0F1117',
+            'charcoal-card': '#151922',
+            'solar-orange': '#F97316',
+            'electric-yellow': '#FCD34D',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- React 18 & Babel Standalone -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      background-color: #0F1117;
+      color: #FFFFFF;
+      font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.05); }
+    }
+    .animate-spin-slow {
+      animation: spinSlow 22s linear infinite;
+    }
+    .animate-pulse-glow {
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+    .glass-card {
+      background: rgba(21, 25, 34, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .glass-card-hover {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card-hover:hover {
+      transform: translateY(-4px);
+      border-color: rgba(249, 115, 22, 0.4);
+      box-shadow: 0 12px 30px -10px rgba(249, 115, 22, 0.15);
+    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0F1117;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #262D3D;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #F97316;
+    }
+  </style>
+</head>
+<body class="bg-[#0F1117] text-white selection:bg-orange-500 selection:text-slate-950">
+  
+  <div id="root"></div>
+
+  <!-- Client-side Browser Execution Script -->
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+
+    const WHATSAPP_PHONE = "7068286755";
+    const PHONE_DISPLAY = "+91 70682 86755";
+
+    function getWhatsAppUrl(customMessage = '') {
+      const defaultText = customMessage || "Namaste! I am exploring Solar Panel Basics and would like to get a free customized solar consultation and quote.";
+      return `https://wa.me/917068286755?text=${encodeURIComponent(defaultText)}`;
+    }
+
+    function formatINR(amount, compact = false) {
+      if (isNaN(amount)) return '₹0';
+      if (compact) {
+        if (amount >= 10000000) return `₹${(amount / 10000000).toFixed(2)} Cr`;
+        if (amount >= 100000) return `₹${(amount / 100000).toFixed(1)} Lakh`;
+        if (amount >= 1000) return `₹${(amount / 1000).toFixed(0)}k`;
+      }
+      return new Intl.NumberFormat('en-IN', {
+        style: 'currency',
+        currency: 'INR',
+        maximumFractionDigits: 0,
+      }).format(amount);
+    }
+
+    function calculateSolarMetrics(monthlyBillINR, sunFactor = 1.0, systemType = 'on-grid') {
+      const ratePerKwh = 8.5;
+      const monthlyKwh = monthlyBillINR / ratePerKwh;
+      const dailyKwhNeeded = monthlyKwh / 30;
+      const peakSunHours = 5.0 * sunFactor;
+
+      const rawKwNeeded = dailyKwhNeeded / (peakSunHours * 0.82);
+      const systemSizeKw = Math.max(1.0, parseFloat(rawKwNeeded.toFixed(1)));
+      
+      const panelWattage = 450; // Modern 450W Mono PERC panel
+      const panelsCount = Math.ceil((systemSizeKw * 1000) / panelWattage);
+      const roofSpaceSqFt = Math.ceil(panelsCount * 22);
+
+      const dailyGenerationUnits = Math.round(systemSizeKw * peakSunHours * 0.85);
+      const monthlyGenerationUnits = dailyGenerationUnits * 30;
+      const estAnnualSavingsINR = Math.round(monthlyGenerationUnits * ratePerKwh * 12 * 0.95);
+      const est25YrSavingsINR = Math.round(estAnnualSavingsINR * 25 * 1.3);
+
+      let systemCostBeforeSubsidy = Math.round(systemSizeKw * 55000);
+      if (systemType === 'hybrid') systemCostBeforeSubsidy += Math.round(systemSizeKw * 22000);
+
+      // PM Surya Ghar Subsidy Rules:
+      // Up to 2 kW: ₹30,000 / kW (Max ₹60,000)
+      // 3 kW and above: ₹78,000 max flat subsidy
+      let subsidyINR = 0;
+      if (systemSizeKw <= 1) subsidyINR = 30000;
+      else if (systemSizeKw <= 2) subsidyINR = 60000;
+      else subsidyINR = 78000;
+
+      const netSystemCostINR = Math.max(10000, systemCostBeforeSubsidy - subsidyINR);
+      const paybackYears = parseFloat((netSystemCostINR / estAnnualSavingsINR).toFixed(1));
+
+      return {
+        monthlyBill: monthlyBillINR,
+        systemSizeKw,
+        panelsCount,
+        panelWattage,
+        roofSpaceSqFt,
+        dailyGenerationUnits,
+        monthlyGenerationUnits,
+        estAnnualSavingsINR,
+        est25YrSavingsINR,
+        systemCostBeforeSubsidy,
+        subsidyINR,
+        netSystemCostINR,
+        paybackYears: Math.max(2.5, paybackYears),
+      };
+    }
+
+    function Icon({ name, className = "w-5 h-5" }) {
+      useEffect(() => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      }, [name]);
+      return <i data-lucide={name} className={className}></i>;
+    }
+
+    function App() {
+      // Calculator State
+      const [monthlyBill, setMonthlyBill] = useState(4500);
+      const [sunFactor, setSunFactor] = useState(1.0);
+      const [systemType, setSystemType] = useState('on-grid');
+      const metrics = calculateSolarMetrics(monthlyBill, sunFactor, systemType);
+
+      // Interactive How Solar Works Stepper State
+      const [activeStep, setActiveStep] = useState(1);
+      const [simulatedSunMode, setSimulatedSunMode] = useState('peak'); // peak, cloudy, night
+
+      // Interactive Comparison Filter
+      const [panelTypeFilter, setPanelTypeFilter] = useState('all');
+
+      // Solar Readiness Quiz State
+      const [quizStep, setQuizStep] = useState(1);
+      const [quizAnswers, setQuizAnswers] = useState({
+        property: 'Independent House',
+        bill: '₹4,000 - ₹8,000/mo',
+        shading: 'Zero Shade (Full Sun)',
+        powerCuts: 'Occasional Power Cuts',
+      });
+      const [quizFinished, setQuizFinished] = useState(false);
+
+      // Modal State
+      const [modalOpen, setModalOpen] = useState(false);
+      const [modalTopic, setModalTopic] = useState('General Solar Consultation');
+
+      // Active Accordion Index for Myths & FAQs
+      const [activeMyth, setActiveMyth] = useState(null);
+
+      useEffect(() => {
+        if (window.lucide) window.lucide.createIcons();
+      });
+
+      const handleOpenModal = (topic = 'General Solar Consultation') => {
+        setModalTopic(topic);
+        setModalOpen(true);
+      };
+
+      const handleQuizSubmit = () => {
+        setQuizFinished(true);
+        if (typeof window.confetti === 'function') {
+          window.confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+        }
+      };
+
+      // Simulated Solar Generation Power Readout
+      const getSimulatedPower = () => {
+        if (simulatedSunMode === 'night') return 0;
+        if (simulatedSunMode === 'cloudy') return Math.round(metrics.systemSizeKw * 220);
+        return Math.round(metrics.systemSizeKw * 850);
+      };
+
+      return (
+        <div className="min-h-screen bg-[#0F1117] text-white">
+          
+          {/* HEADER / NAVIGATION */}
+          <header className="fixed top-0 left-0 right-0 z-50 bg-[#0F1117]/90 backdrop-blur-md border-b border-white/10 py-3.5 shadow-2xl">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+              
+              {/* Brand / Logo */}
+              <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-3 cursor-pointer group">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 via-orange-500 to-yellow-400 p-[2px] shadow-lg shadow-orange-500/20 group-hover:scale-105 transition-transform">
+                  <div className="w-full h-full bg-[#0F1117] rounded-[10px] flex items-center justify-center">
+                    <Icon name="sun" className="w-6 h-6 text-orange-500 animate-spin-slow" />
+                  </div>
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl font-black tracking-tight text-white">
+                      SOLAR<span className="text-orange-500">BASICS</span>
+                    </span>
+                    <span className="text-[10px] font-extrabold bg-orange-500/10 text-orange-400 border border-orange-500/30 px-2 py-0.5 rounded-md uppercase tracking-wider">
+                      101 GUIDE
+                    </span>
+                  </div>
+                  <p className="text-[10px] text-slate-400 font-medium">Master Solar Energy & Photovoltaics</p>
+                </div>
+              </div>
+
+              {/* Navigation Links */}
+              <nav className="hidden xl:flex items-center gap-6 text-xs font-semibold text-slate-300">
+                <a href="#how-it-works" className="hover:text-orange-400 transition-colors flex items-center gap-1.5">
+                  <Icon name="zap" className="w-3.5 h-3.5 text-amber-400" /> How Solar Works
+                </a>
+                <a href="#panel-types" className="hover:text-orange-400 transition-colors">Panel Types</a>
+                <a href="#components" className="hover:text-orange-400 transition-colors">System Components</a>
+                <a href="#calculator" className="hover:text-orange-400 transition-colors flex items-center gap-1">
+                  Sizing Calculator <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                </a>
+                <a href="#myths" className="hover:text-orange-400 transition-colors">Myths vs Facts</a>
+                <a href="#quiz" className="hover:text-orange-400 transition-colors">Solar Quiz</a>
+              </nav>
+
+              {/* Action Buttons */}
+              <div className="flex items-center gap-3">
+                <a
+                  href="#quiz"
+                  className="hidden sm:flex items-center gap-2 text-xs font-bold text-slate-200 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-orange-500/50 hover:bg-white/10 transition-all"
+                >
+                  <Icon name="help-circle" className="w-3.5 h-3.5 text-amber-400" />
+                  Is Solar Right For You?
+                </a>
+
+                <button
+                  onClick={() => handleOpenModal('Header Solar Basics Consultation')}
+                  className="px-4 py-2 text-xs font-bold text-slate-950 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-400 rounded-xl shadow-lg shadow-orange-500/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-1.5"
+                >
+                  <Icon name="message-square" className="w-4 h-4" /> Get Free Consultation
+                </button>
+              </div>
+
+            </div>
+          </header>
+
+          {/* HERO SECTION */}
+          <section className="pt-32 pb-20 relative overflow-hidden bg-[#0F1117]">
+            {/* Background Radial Glow */}
+            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-orange-600/15 via-amber-500/10 to-transparent rounded-full blur-[140px] pointer-events-none" />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+              
+              <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
+                
+                {/* Highlight Badge */}
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/30 text-xs font-bold text-orange-400 shadow-inner">
+                  <Icon name="sun" className="w-4 h-4 text-amber-400 animate-spin-slow" />
+                  Solar Energy Basics 101 • Complete Educational & Sizing Guide
+                </div>
+
+                {/* Main Headline */}
+                <div className="space-y-4">
+                  <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-[1.08]">
+                    Solar Panel Basics. <br />
+                    <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent">
+                      Demystified & Simplified.
+                    </span>
+                  </h1>
+                  <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+                    Learn how photovoltaic cells convert raw sunlight into clean electricity, compare panel technologies, understand essential hardware, calculate your energy yield, and claim <strong className="text-amber-400">PM Surya Ghar subsidies (up to ₹78,000)</strong>.
+                  </p>
+                </div>
+
+                {/* Key Pillars Badges */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                  <div className="p-3 rounded-2xl bg-white/[0.04] border border-white/10 text-left">
+                    <Icon name="cpu" className="w-5 h-5 text-orange-400 mb-1.5" />
+                    <h4 className="text-xs font-bold text-white">PV Cell Tech</h4>
+                    <p className="text-[10px] text-slate-400">Silicon P-N Junction</p>
+                  </div>
+                  <div className="p-3 rounded-2xl bg-white/[0.04] border border-white/10 text-left">
+                    <Icon name="layers" className="w-5 h-5 text-amber-400 mb-1.5" />
+                    <h4 className="text-xs font-bold text-white">Panel Types</h4>
+                    <p className="text-[10px] text-slate-400">Mono vs Poly vs Bifacial</p>
+                  </div>
+                  <div className="p-3 rounded-2xl bg-white/[0.04] border border-white/10 text-left">
+                    <Icon name="zap" className="w-5 h-5 text-yellow-400 mb-1.5" />
+                    <h4 className="text-xs font-bold text-white">DC to AC</h4>
+                    <p className="text-[10px] text-slate-400">Inverter Synchronization</p>
+                  </div>
+                  <div className="p-3 rounded-2xl bg-white/[0.04] border border-white/10 text-left">
+                    <Icon name="calculator" className="w-5 h-5 text-emerald-400 mb-1.5" />
+                    <h4 className="text-xs font-bold text-white">Sizing & ROI</h4>
+                    <p className="text-[10px] text-slate-400">Net Metering Savings</p>
+                  </div>
+                </div>
+
+                {/* Call to Action Buttons */}
+                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                  <a
+                    href="#how-it-works"
+                    className="w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-extrabold text-slate-950 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-400 hover:from-orange-400 shadow-xl shadow-orange-500/25 flex items-center justify-center gap-2.5 transition-all"
+                  >
+                    Start Solar 101 Tour <Icon name="arrow-right" className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="#calculator"
+                    className="w-full sm:w-auto px-6 py-4 rounded-xl text-sm font-semibold text-slate-200 bg-white/5 border border-white/15 hover:bg-white/10 flex items-center justify-center gap-2 transition-all"
+                  >
+                    <Icon name="calculator" className="w-4 h-4 text-amber-400" /> Sizing & Subsidy Calculator
+                  </a>
+                </div>
+
+              </div>
+
+              {/* Hero Right Visual: Live Interactive Solar Panel Cell Simulation */}
+              <div className="lg:col-span-5">
+                <div className="glass-card rounded-3xl p-6 shadow-2xl space-y-6 border border-white/15 relative overflow-hidden">
+                  
+                  <div className="flex justify-between items-center pb-3 border-b border-white/10">
+                    <div className="flex items-center gap-2">
+                      <span className="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></span>
+                      <span className="text-xs font-bold text-slate-200 uppercase tracking-wider">Live Solar Simulation</span>
+                    </div>
+                    <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                      450W Mono PERC Cell
+                    </span>
+                  </div>
+
+                  {/* Sun Intensity Selector */}
+                  <div className="space-y-2">
+                    <label className="text-xs text-slate-400 font-medium block">Simulate Sun Conditions:</label>
+                    <div className="grid grid-cols-3 gap-2">
+                      <button
+                        onClick={() => setSimulatedSunMode('peak')}
+                        className={`py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all border ${simulatedSunMode === 'peak' ? 'bg-orange-500/20 border-orange-500 text-orange-300' : 'bg-white/5 border-white/10 text-slate-400'}`}
+                      >
+                        <Icon name="sun" className="w-3.5 h-3.5 text-amber-400" /> Peak Sun
+                      </button>
+                      <button
+                        onClick={() => setSimulatedSunMode('cloudy')}
+                        className={`py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all border ${simulatedSunMode === 'cloudy' ? 'bg-slate-700/50 border-slate-500 text-slate-200' : 'bg-white/5 border-white/10 text-slate-400'}`}
+                      >
+                        <Icon name="cloud-sun" className="w-3.5 h-3.5 text-slate-300" /> Overcast
+                      </button>
+                      <button
+                        onClick={() => setSimulatedSunMode('night')}
+                        className={`py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all border ${simulatedSunMode === 'night' ? 'bg-indigo-950/60 border-indigo-500 text-indigo-300' : 'bg-white/5 border-white/10 text-slate-400'}`}
+                      >
+                        <Icon name="moon" className="w-3.5 h-3.5 text-indigo-400" /> Night
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Visual Solar Cell Diagram */}
+                  <div className="relative h-52 rounded-2xl bg-slate-950 border border-white/10 p-4 flex flex-col justify-between overflow-hidden">
+                    
+                    {/* Photon Particles Animation */}
+                    {simulatedSunMode !== 'night' && (
+                      <div className="absolute top-2 left-1/2 -translate-x-1/2 flex gap-8">
+                        <div className="w-2 h-2 rounded-full bg-amber-400 animate-bounce"></div>
+                        <div className="w-2 h-2 rounded-full bg-yellow-300 animate-bounce delay-100"></div>
+                        <div className="w-2 h-2 rounded-full bg-orange-400 animate-bounce delay-200"></div>
+                      </div>
+                    )}
+
+                    <div className="flex justify-between items-center text-xs relative z-10">
+                      <span className="text-slate-400">Silicon Wafer Junction:</span>
+                      <span className="font-bold text-amber-400">P-Type (+) / N-Type (-)</span>
+                    </div>
+
+                    <div className="text-center my-auto space-y-1 relative z-10">
+                      <span className="text-xs text-slate-400 uppercase tracking-widest block">Instant Solar Output</span>
+                      <div className="text-4xl font-black bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">
+                        {getSimulatedPower()} <span className="text-lg font-normal text-slate-400">Watts</span>
+                      </div>
+                      <span className="text-[11px] text-emerald-400 font-semibold block">
+                        {simulatedSunMode === 'night' ? '0% Generation (Grid / Battery Active)' : simulatedSunMode === 'cloudy' ? '25% Diffused Photonic Absorption' : '100% Direct Photovoltaic Conversion'}
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-2 text-[11px] pt-2 border-t border-white/10 relative z-10 text-slate-300">
+                      <div>Efficiency: <strong className="text-white">22.8% Mono PERC</strong></div>
+                      <div>Voltage (Vmp): <strong className="text-white">41.5V DC</strong></div>
+                    </div>
+                  </div>
+
+                  {/* Summary Metric Footer */}
+                  <div className="grid grid-cols-2 gap-3 text-center">
+                    <div className="p-3 rounded-2xl bg-white/[0.03] border border-white/10">
+                      <span className="text-[10px] text-slate-400 block uppercase">Lifespan Warranty</span>
+                      <span className="text-lg font-black text-white">25 - 30 Years</span>
+                    </div>
+                    <div className="p-3 rounded-2xl bg-white/[0.03] border border-white/10">
+                      <span className="text-[10px] text-slate-400 block uppercase">Degradation Rate</span>
+                      <span className="text-lg font-black text-amber-400">&lt; 0.5% / Year</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* SECTION 1: HOW SOLAR PANELS WORK (THE PHOTOVOLTAIC EFFECT) */}
+          <section id="how-it-works" className="py-24 bg-[#0F1117] border-t border-white/10 relative">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+              
+              <div className="text-center max-w-3xl mx-auto space-y-4">
+                <span className="text-xs font-extrabold text-orange-400 uppercase tracking-widest bg-orange-500/10 px-4 py-1.5 rounded-full border border-orange-500/30">
+                  Step-by-Step Science
+                </span>
+                <h2 className="text-3xl sm:text-5xl font-black text-white">How Solar Panels Turn Sunlight Into Electricity</h2>
+                <p className="text-slate-300 text-sm sm:text-base">The Photovoltaic (PV) effect explained in 4 easy visual steps. Click any step below to see what happens inside your system.</p>
+              </div>
+
+              {/* Step Navigation Tabs */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {[
+                  { step: 1, title: "1. Photon Absorption", icon: "sun", subtitle: "Sunlight hits PV Silicon" },
+                  { step: 2, title: "2. Electron Flow (DC)", icon: "zap", subtitle: "Direct Current Created" },
+                  { step: 3, title: "3. Inverter Conversion", icon: "refresh-cw", subtitle: "DC converted to 230V AC" },
+                  { step: 4, title: "4. Home & Net Meter", icon: "home", subtitle: "Powers Home & Grid Export" },
+                ].map((item) => (
+                  <button
+                    key={item.step}
+                    onClick={() => setActiveStep(item.step)}
+                    className={`p-4 rounded-2xl border text-left transition-all flex flex-col justify-between ${activeStep === item.step ? 'bg-gradient-to-b from-orange-500/20 to-amber-500/10 border-orange-500 shadow-lg shadow-orange-500/15' : 'bg-white/[0.02] border-white/10 hover:bg-white/[0.05]'}`}
+                  >
+                    <div className="flex justify-between items-center mb-2">
+                      <span className={`w-8 h-8 rounded-xl flex items-center justify-center text-xs font-black ${activeStep === item.step ? 'bg-orange-500 text-slate-950' : 'bg-white/10 text-slate-300'}`}>
+                        {item.step}
+                      </span>
+                      <Icon name={item.icon} className={`w-5 h-5 ${activeStep === item.step ? 'text-amber-400' : 'text-slate-400'}`} />
+                    </div>
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-bold text-white">{item.title}</h4>
+                      <p className="text-[11px] text-slate-400">{item.subtitle}</p>
+                    </div>
+                  </button>
+                ))}
+              </div>
+
+              {/* Active Step Detailed Interactive Display */}
+              <div className="glass-card rounded-3xl p-6 sm:p-10 border border-white/15 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                {/* Step Description */}
+                <div className="lg:col-span-6 space-y-6">
+                  {activeStep === 1 && (
+                    <div className="space-y-4 animate-fadeIn">
+                      <span className="px-3 py-1 rounded-md bg-orange-500/20 text-orange-400 text-xs font-bold border border-orange-500/30">Step 1: Photons Hit Silicon Wafer</span>
+                      <h3 className="text-2xl sm:text-3xl font-extrabold text-white">Sunlight (Photons) Strikes PV Cells</h3>
+                      <p className="text-slate-300 text-sm leading-relaxed">
+                        Solar panels are made of purified silicon semiconductor cells. Sunlight is composed of tiny packets of energy called <strong className="text-amber-400">photons</strong>. When photons strike the P-N junction wafer inside the panel, their light energy is absorbed by the silicon atoms.
+                      </p>
+                      <ul className="space-y-2 text-xs text-slate-300">
+                        <li className="flex items-center gap-2"><Icon name="check-circle-2" className="w-4 h-4 text-orange-400" /> Silicon absorbs photons across light wavelengths</li>
+                        <li className="flex items-center gap-2"><Icon name="check-circle-2" className="w-4 h-4 text-orange-400" /> Anti-reflective glass coating prevents light bounce</li>
+                        <li className="flex items-center gap-2"><Icon name="check-circle-2" className="w-4 h-4 text-orange-400" /> Works under direct sunlight as well as diffused daylight</li>
+                      </ul>
+                    </div>
+                  )}
+
+                  {activeStep === 2 && (
+                    <div className="space-y-4 animate-fadeIn">
+                      <span className="px-3 py-1 rounded-md bg-amber-500/20 text-amber-400 text-xs font-bold border border-amber-500/30">Step 2: Electron Excitation</span>
+                      <h3 className="text-2xl sm:text-3xl font-extrabold text-white">Direct Current (DC) Electricity Flows</h3>
+                      <p className="text-slate-300 text-sm leading-relaxed">
+                        The absorbed photonic energy knocks electrons loose from the silicon atoms. An built-in electric field at the P-N junction forces these free electrons to flow in a uniform single direction, creating a stream of <strong className="text-amber-400">Direct Current (DC) electricity</strong>.
+                      </p>
+                      <ul className="space-y-2 text-xs text-slate-300">
+                        <li className="flex items-center gap-2"><Icon name="check-circle-2" className="w-4 h-4 text-amber-400" /> Silver busbars collect moving electrons</li>
+                        <li className="flex items-center gap-2"><Icon name="check-circle-2" className="w-4 h-4 text-amber-400" /> Direct Current (DC) voltage builds across panel circuit</li>
+                        <li className="flex items-center gap-2"><Icon name="check-circle-2" className="w-4 h-4 text-amber-400" /> Microinverters or string cables route DC to the inverter</li>
+                      </ul>
+                    </div>
+                  )}
+
+                  {activeStep === 3 && (
+                    <div className="space-y-4 animate-fadeIn">
+                      <span className="px-3 py-1 rounded-md bg-yellow-500/20 text-yellow-400 text-xs font-bold border border-yellow-500/30">Step 3: Inverter Transformation</span>
+                      <h3 className="text-2xl sm:text-3xl font-extrabold text-white">Solar Inverter Converts DC to AC</h3>
+                      <p className="text-slate-300 text-sm leading-relaxed">
+                        Homes and grid appliances run on <strong className="text-amber-400">230V Alternating Current (AC)</strong>. The Solar Inverter takes the DC power from the panels and safely transforms it into standard AC power synchronized perfectly with your utility grid frequency (50 Hz).
+                      </p>
+                      <ul className="space-y-2 text-xs text-slate-300">
+                        <li className="flex items-center gap-2"><Icon name="check-circle-2" className="w-4 h-4 text-yellow-400" /> 98%+ Inverter conversion efficiency</li>
+                        <li className="flex items-center gap-2"><Icon name="check-circle-2" className="w-4 h-4 text-yellow-400" /> Built-in MPPT (Maximum Power Point Tracking)</li>
+                        <li className="flex items-center gap-2"><Icon name="check-circle-2" className="w-4 h-4 text-yellow-400" /> Real-time mobile app monitoring via Wi-Fi</li>
+                      </ul>
+                    </div>
+                  )}
+
+                  {activeStep === 4 && (
+                    <div className="space-y-4 animate-fadeIn">
+                      <span className="px-3 py-1 rounded-md bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30">Step 4: Powering & Net Metering</span>
+                      <h3 className="text-2xl sm:text-3xl font-extrabold text-white">Power Your Home & Sell Excess to Grid</h3>
+                      <p className="text-slate-300 text-sm leading-relaxed">
+                        The converted AC electricity powers your fans, lights, refrigerator, and ACs first. If your panels generate more electricity than your home needs, the surplus power is automatically sent back to the grid through a <strong className="text-emerald-400">Bi-Directional Net Meter</strong>, earning you credits on your electricity bill!
+                      </p>
+                      <ul className="space-y-2 text-xs text-slate-300">
+                        <li className="flex items-center gap-2"><Icon name="check-circle-2" className="w-4 h-4 text-emerald-400" /> Priority self-consumption lowers monthly bill by up to 90%</li>
+                        <li className="flex items-center gap-2"><Icon name="check-circle-2" className="w-4 h-4 text-emerald-400" /> UPPCL / DISCOM Net Metering records imports & exports</li>
+                        <li className="flex items-center gap-2"><Icon name="check-circle-2" className="w-4 h-4 text-emerald-400" /> Battery backup option stores extra power for night blackouts</li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+
+                {/* Step Visual Graphic Box */}
+                <div className="lg:col-span-6 bg-slate-950 rounded-2xl border border-white/10 p-6 flex flex-col items-center justify-center text-center space-y-4 relative min-h-[300px]">
+                  
+                  <div className="w-20 h-20 rounded-3xl bg-gradient-to-tr from-orange-500 to-amber-400 p-[2px] shadow-2xl shadow-orange-500/30">
+                    <div className="w-full h-full bg-[#0F1117] rounded-[22px] flex items-center justify-center">
+                      <Icon
+                        name={activeStep === 1 ? "sun" : activeStep === 2 ? "zap" : activeStep === 3 ? "refresh-cw" : "home"}
+                        className="w-10 h-10 text-orange-400"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <span className="text-xs text-slate-400 block font-semibold uppercase tracking-wider">Visual Mechanism</span>
+                    <h4 className="text-lg font-bold text-white">
+                      {activeStep === 1 ? "Sunlight Photons → Silicon Wafer" : activeStep === 2 ? "Free Electrons → Direct Current (DC)" : activeStep === 3 ? "Solar Inverter → 230V AC Current" : "Distribution Box → Home Appliances & Grid Net Meter"}
+                    </h4>
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 text-xs text-slate-300 max-w-md">
+                    <span className="text-amber-400 font-bold">Pro Tip: </span>
+                    {activeStep === 1 && "Monocrystalline panels use single-crystal silicon for the highest photon absorption density."}
+                    {activeStep === 2 && "DC electricity always flows from positive to negative terminal within PV module wiring."}
+                    {activeStep === 3 && "String inverters manage the whole solar array, while microinverters manage individual panels."}
+                    {activeStep === 4 && "Net metering guarantees that every unit (kWh) fed back to the grid offsets your night electricity usage!"}
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+
+          {/* SECTION 2: TYPES OF SOLAR PANELS (INTERACTIVE COMPARISON GUIDE) */}
+          <section id="panel-types" className="py-24 bg-[#0F1117] border-t border-white/10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+              
+              <div className="text-center max-w-3xl mx-auto space-y-4">
+                <span className="text-xs font-extrabold text-orange-400 uppercase tracking-widest bg-orange-500/10 px-4 py-1.5 rounded-full border border-orange-500/30">
+                  Panel Technologies Comparison
+                </span>
+                <h2 className="text-3xl sm:text-5xl font-black text-white">Types of Solar Panels Explained</h2>
+                <p className="text-slate-300 text-sm sm:text-base">Understand the structural, efficiency, and cost differences between Monocrystalline, Polycrystalline, Bifacial, and Thin-Film panels.</p>
+              </div>
+
+              {/* Filter Tabs */}
+              <div className="flex justify-center gap-2 flex-wrap">
+                {['all', 'monocrystalline', 'polycrystalline', 'bifacial', 'thin-film'].map((filter) => (
+                  <button
+                    key={filter}
+                    onClick={() => setPanelTypeFilter(filter)}
+                    className={`px-4 py-2 rounded-xl text-xs font-bold capitalize transition-all border ${panelTypeFilter === filter ? 'bg-orange-500 text-slate-950 border-orange-400 shadow-md' : 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10'}`}
+                  >
+                    {filter === 'all' ? 'Show All Types' : filter}
+                  </button>
+                ))}
+              </div>
+
+              {/* Panel Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                {/* 1. Monocrystalline */}
+                {(panelTypeFilter === 'all' || panelTypeFilter === 'monocrystalline') && (
+                  <div className="glass-card glass-card-hover rounded-3xl p-6 flex flex-col justify-between space-y-6">
+                    <div className="space-y-4">
+                      <div className="h-40 rounded-2xl bg-gradient-to-b from-slate-900 to-black border border-white/10 flex flex-col items-center justify-center p-4 relative">
+                        <div className="w-16 h-16 rounded-xl bg-slate-950 border border-slate-700 flex items-center justify-center text-orange-400 font-black text-xs shadow-inner">
+                          MONO
+                        </div>
+                        <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-orange-500 text-slate-950">Top Efficiency</span>
+                      </div>
+
+                      <h3 className="text-xl font-bold text-white">Monocrystalline Panels</h3>
+                      <p className="text-xs text-slate-300 leading-relaxed">
+                        Made from a single pure silicon crystal. Recognizable by their sleek black look and octagonal cell edges. High efficiency in heat.
+                      </p>
+
+                      <div className="space-y-2 text-xs border-t border-white/10 pt-4">
+                        <div className="flex justify-between"><span className="text-slate-400">Efficiency:</span><span className="font-bold text-emerald-400">20% – 24%</span></div>
+                        <div className="flex justify-between"><span className="text-slate-400">Space Needed:</span><span className="font-bold text-white">Smallest (~90 sq.ft/kW)</span></div>
+                        <div className="flex justify-between"><span className="text-slate-400">Lifespan:</span><span className="font-bold text-amber-300">25 – 30+ Years</span></div>
+                        <div className="flex justify-between"><span className="text-slate-400">Best For:</span><span className="font-bold text-slate-200">Residential Rooftops</span></div>
+                      </div>
+                    </div>
+
+                    <button onClick={() => handleOpenModal('Monocrystalline Solar Panels Inquiry')} className="w-full py-2.5 rounded-xl font-bold text-xs bg-orange-500/20 text-orange-300 border border-orange-500/30 hover:bg-orange-500/30 transition-all">
+                      Select Mono Panels
+                    </button>
+                  </div>
+                )}
+
+                {/* 2. Polycrystalline */}
+                {(panelTypeFilter === 'all' || panelTypeFilter === 'polycrystalline') && (
+                  <div className="glass-card glass-card-hover rounded-3xl p-6 flex flex-col justify-between space-y-6">
+                    <div className="space-y-4">
+                      <div className="h-40 rounded-2xl bg-gradient-to-b from-blue-950 to-slate-900 border border-white/10 flex flex-col items-center justify-center p-4 relative">
+                        <div className="w-16 h-16 rounded-xl bg-blue-900/60 border border-blue-600 flex items-center justify-center text-blue-300 font-black text-xs">
+                          POLY
+                        </div>
+                        <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-blue-500 text-white">Budget Option</span>
+                      </div>
+
+                      <h3 className="text-xl font-bold text-white">Polycrystalline Panels</h3>
+                      <p className="text-xs text-slate-300 leading-relaxed">
+                        Made by melting multiple silicon fragments together. Distinctive blue speckled look. Lower cost but requires slightly more roof area.
+                      </p>
+
+                      <div className="space-y-2 text-xs border-t border-white/10 pt-4">
+                        <div className="flex justify-between"><span className="text-slate-400">Efficiency:</span><span className="font-bold text-yellow-400">15% – 18%</span></div>
+                        <div className="flex justify-between"><span className="text-slate-400">Space Needed:</span><span className="font-bold text-white">Medium (~110 sq.ft/kW)</span></div>
+                        <div className="flex justify-between"><span className="text-slate-400">Lifespan:</span><span className="font-bold text-amber-300">25 Years</span></div>
+                        <div className="flex justify-between"><span className="text-slate-400">Best For:</span><span className="font-bold text-slate-200">Budget Large Roofs</span></div>
+                      </div>
+                    </div>
+
+                    <button onClick={() => handleOpenModal('Polycrystalline Solar Panels Inquiry')} className="w-full py-2.5 rounded-xl font-bold text-xs bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10 transition-all">
+                      Select Poly Panels
+                    </button>
+                  </div>
+                )}
+
+                {/* 3. Bifacial Solar Panels */}
+                {(panelTypeFilter === 'all' || panelTypeFilter === 'bifacial') && (
+                  <div className="glass-card glass-card-hover rounded-3xl p-6 flex flex-col justify-between space-y-6">
+                    <div className="space-y-4">
+                      <div className="h-40 rounded-2xl bg-gradient-to-b from-amber-950/40 to-slate-900 border border-white/10 flex flex-col items-center justify-center p-4 relative">
+                        <div className="w-16 h-16 rounded-xl bg-amber-900/40 border border-amber-500 flex items-center justify-center text-amber-400 font-black text-xs">
+                          BIFACIAL
+                        </div>
+                        <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-amber-500 text-slate-950">+25% Power Gain</span>
+                      </div>
+
+                      <h3 className="text-xl font-bold text-white">Bifacial Solar Panels</h3>
+                      <p className="text-xs text-slate-300 leading-relaxed">
+                        Features dual glass sides that absorb direct sunlight from the front AND reflected ground light (albedo effect) from the back!
+                      </p>
+
+                      <div className="space-y-2 text-xs border-t border-white/10 pt-4">
+                        <div className="flex justify-between"><span className="text-slate-400">Efficiency:</span><span className="font-bold text-emerald-400">Up to 26%+ Total</span></div>
+                        <div className="flex justify-between"><span className="text-slate-400">Reflection Gain:</span><span className="font-bold text-amber-400">+10% to +30% Yield</span></div>
+                        <div className="flex justify-between"><span className="text-slate-400">Lifespan:</span><span className="font-bold text-amber-300">30 Years Dual Glass</span></div>
+                        <div className="flex justify-between"><span className="text-slate-400">Best For:</span><span className="font-bold text-slate-200">Flat & White Roofs</span></div>
+                      </div>
+                    </div>
+
+                    <button onClick={() => handleOpenModal('Bifacial Dual Glass Panels Inquiry')} className="w-full py-2.5 rounded-xl font-bold text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 hover:bg-amber-500/30 transition-all">
+                      Select Bifacial Panels
+                    </button>
+                  </div>
+                )}
+
+                {/* 4. Thin-Film Solar Panels */}
+                {(panelTypeFilter === 'all' || panelTypeFilter === 'thin-film') && (
+                  <div className="glass-card glass-card-hover rounded-3xl p-6 flex flex-col justify-between space-y-6">
+                    <div className="space-y-4">
+                      <div className="h-40 rounded-2xl bg-gradient-to-b from-purple-950/40 to-slate-900 border border-white/10 flex flex-col items-center justify-center p-4 relative">
+                        <div className="w-16 h-16 rounded-xl bg-purple-950 border border-purple-500 flex items-center justify-center text-purple-300 font-black text-xs">
+                          THIN-FILM
+                        </div>
+                        <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-purple-500 text-white">Ultra Flexible</span>
+                      </div>
+
+                      <h3 className="text-xl font-bold text-white">Thin-Film Panels</h3>
+                      <p className="text-xs text-slate-300 leading-relaxed">
+                        Constructed by depositing photovoltaic layers onto flexible glass, plastic, or metal substrates. Extremely lightweight.
+                      </p>
+
+                      <div className="space-y-2 text-xs border-t border-white/10 pt-4">
+                        <div className="flex justify-between"><span className="text-slate-400">Efficiency:</span><span className="font-bold text-yellow-400">11% – 15%</span></div>
+                        <div className="flex justify-between"><span className="text-slate-400">Flexibility:</span><span className="font-bold text-white">Bendable & Lightweight</span></div>
+                        <div className="flex justify-between"><span className="text-slate-400">Lifespan:</span><span className="font-bold text-amber-300">15 – 20 Years</span></div>
+                        <div className="flex justify-between"><span className="text-slate-400">Best For:</span><span className="font-bold text-slate-200">Curved Roofs & RVs</span></div>
+                      </div>
+                    </div>
+
+                    <button onClick={() => handleOpenModal('Thin Film Solar Panels Inquiry')} className="w-full py-2.5 rounded-xl font-bold text-xs bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10 transition-all">
+                      Select Thin-Film
+                    </button>
+                  </div>
+                )}
+
+              </div>
+
+            </div>
+          </section>
+
+          {/* SECTION 3: KEY COMPONENTS OF A COMPLETE SOLAR SYSTEM */}
+          <section id="components" className="py-24 bg-[#0F1117] border-t border-white/10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+              
+              <div className="text-center max-w-3xl mx-auto space-y-4">
+                <span className="text-xs font-extrabold text-orange-400 uppercase tracking-widest bg-orange-500/10 px-4 py-1.5 rounded-full border border-orange-500/30">
+                  System Anatomy
+                </span>
+                <h2 className="text-3xl sm:text-5xl font-black text-white">Essential Components of a Solar Setup</h2>
+                <p className="text-slate-300 text-sm sm:text-base">A complete rooftop solar power plant relies on 5 core hardware components working in harmony.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                {[
+                  {
+                    name: "Solar PV Modules",
+                    desc: "Captures photons & produces DC power",
+                    specs: "400W - 590W ratings per panel",
+                    icon: "sun",
+                    badge: "Generation"
+                  },
+                  {
+                    name: "Solar Inverter",
+                    desc: "Converts DC to 230V AC home power",
+                    specs: "String, Micro, or Hybrid",
+                    icon: "refresh-cw",
+                    badge: "Conversion"
+                  },
+                  {
+                    name: "Lithium Battery",
+                    desc: "Stores daytime power for night blackout",
+                    specs: "LiFePO4 LFP chemistry",
+                    icon: "battery-charging",
+                    badge: "Storage"
+                  },
+                  {
+                    name: "Net Meter",
+                    desc: "Bi-directional DISCOM utility meter",
+                    specs: "Imports & Exports tracking",
+                    icon: "activity",
+                    badge: "Metering"
+                  },
+                  {
+                    name: "Structure & Safety",
+                    desc: "HDG racking, SPDs & Earthing protection",
+                    specs: "Wind resilient up to 170 km/h",
+                    icon: "shield-check",
+                    badge: "Protection"
+                  },
+                ].map((comp, idx) => (
+                  <div key={idx} className="glass-card glass-card-hover rounded-2xl p-5 flex flex-col justify-between space-y-4 border border-white/10">
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center">
+                        <span className="p-2.5 rounded-xl bg-orange-500/10 text-orange-400 border border-orange-500/20">
+                          <Icon name={comp.icon} className="w-5 h-5" />
+                        </span>
+                        <span className="text-[10px] font-bold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20 uppercase">
+                          {comp.badge}
+                        </span>
+                      </div>
+                      <h4 className="text-base font-bold text-white">{comp.name}</h4>
+                      <p className="text-xs text-slate-300 leading-relaxed">{comp.desc}</p>
+                    </div>
+                    <div className="pt-3 border-t border-white/10 text-[11px] text-slate-400">
+                      Specs: <strong className="text-slate-200">{comp.specs}</strong>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </section>
+
+          {/* SECTION 4: INTERACTIVE SOLAR SIZING & SUBSIDY CALCULATOR */}
+          <section id="calculator" className="py-24 bg-[#0F1117] border-t border-white/10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+              
+              <div className="text-center max-w-3xl mx-auto space-y-4">
+                <span className="text-xs font-extrabold text-orange-400 uppercase tracking-widest bg-orange-500/10 px-4 py-1.5 rounded-full border border-orange-500/30">
+                  Interactive Calculator (in ₹ INR)
+                </span>
+                <h2 className="text-3xl sm:text-5xl font-black text-white">Solar Sizing & PM Surya Ghar Subsidy Calculator</h2>
+                <p className="text-slate-300 text-sm sm:text-base">Move the slider to enter your electricity bill and calculate live daily kWh output, roof area needed, and government subsidy.</p>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                {/* Inputs Box */}
+                <div className="lg:col-span-6 glass-card rounded-3xl p-6 sm:p-8 space-y-6 border border-white/15">
+                  
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center">
+                      <label className="text-sm font-bold text-slate-200">Monthly Electricity Bill</label>
+                      <span className="text-2xl font-black text-amber-400 bg-amber-400/10 px-4 py-1 rounded-xl border border-amber-400/30">{formatINR(monthlyBill)}/mo</span>
+                    </div>
+                    <input
+                      type="range"
+                      min={1500}
+                      max={50000}
+                      step={500}
+                      value={monthlyBill}
+                      onChange={(e) => setMonthlyBill(Number(e.target.value))}
+                      className="w-full h-3 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-orange-500"
+                    />
+                    <div className="flex justify-between text-[11px] text-slate-400">
+                      <span>₹1,500</span><span>₹25,000</span><span>₹50,000+</span>
+                    </div>
+                  </div>
+
+                  {/* System Architecture Selection */}
+                  <div className="space-y-2">
+                    <label className="text-xs font-semibold text-slate-300 block">System Type</label>
+                    <div className="grid grid-cols-2 gap-3">
+                      <button
+                        onClick={() => setSystemType('on-grid')}
+                        className={`py-2.5 rounded-xl text-xs font-bold border transition-all ${systemType === 'on-grid' ? 'bg-orange-500/20 border-orange-500 text-orange-300' : 'bg-white/5 border-white/10 text-slate-400'}`}
+                      >
+                        On-Grid (Net Metered)
+                      </button>
+                      <button
+                        onClick={() => setSystemType('hybrid')}
+                        className={`py-2.5 rounded-xl text-xs font-bold border transition-all ${systemType === 'hybrid' ? 'bg-amber-500/20 border-amber-500 text-amber-300' : 'bg-white/5 border-white/10 text-slate-400'}`}
+                      >
+                        Hybrid (With Battery)
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Roof Sunlight Profile */}
+                  <div className="space-y-2">
+                    <label className="text-xs font-semibold text-slate-300 block">Sunlight Exposure Profile</label>
+                    <div className="grid grid-cols-3 gap-2">
+                      <button onClick={() => setSunFactor(0.85)} className={`py-2 rounded-xl text-xs font-semibold border ${sunFactor === 0.85 ? 'bg-orange-500/20 border-orange-500 text-orange-300' : 'bg-white/5 border-white/10 text-slate-400'}`}>Partial Shade</button>
+                      <button onClick={() => setSunFactor(1.0)} className={`py-2 rounded-xl text-xs font-semibold border ${sunFactor === 1.0 ? 'bg-orange-500/20 border-orange-500 text-orange-300' : 'bg-white/5 border-white/10 text-slate-400'}`}>Full Sun</button>
+                      <button onClick={() => setSunFactor(1.15)} className={`py-2 rounded-xl text-xs font-semibold border ${sunFactor === 1.15 ? 'bg-orange-500/20 border-orange-500 text-orange-300' : 'bg-white/5 border-white/10 text-slate-400'}`}>Peak Exposure</button>
+                    </div>
+                  </div>
+
+                  {/* System Technical Sizing Output */}
+                  <div className="grid grid-cols-2 gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/10 text-xs">
+                    <div>
+                      <span className="text-slate-400 block">Rec. Capacity</span>
+                      <span className="text-lg font-extrabold text-white">{metrics.systemSizeKw} kW</span>
+                      <span className="text-[10px] text-slate-400 block">({metrics.panelsCount} x {metrics.panelWattage}W Mono Panels)</span>
+                    </div>
+                    <div>
+                      <span className="text-slate-400 block">Est. Roof Area</span>
+                      <span className="text-lg font-extrabold text-white">{metrics.roofSpaceSqFt} sq.ft</span>
+                      <span className="text-[10px] text-slate-400 block">Unshaded Roof Space</span>
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* Calculations Output Box */}
+                <div className="lg:col-span-6 bg-gradient-to-b from-orange-950/40 via-slate-900 to-[#0F1117] border border-orange-500/30 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl">
+                  
+                  <div>
+                    <span className="text-xs text-slate-400 block uppercase tracking-wider font-semibold">Estimated Daily Generation</span>
+                    <div className="text-4xl font-black text-amber-400">
+                      {metrics.dailyGenerationUnits} <span className="text-lg font-normal text-slate-300">Units (kWh) / day</span>
+                    </div>
+                    <span className="text-xs text-slate-400">~{metrics.monthlyGenerationUnits} Units saved monthly</span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10">
+                      <span className="text-xs text-slate-400 block">Annual Bill Savings</span>
+                      <span className="text-xl font-extrabold text-white">{formatINR(metrics.estAnnualSavingsINR)}</span>
+                    </div>
+                    <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10">
+                      <span className="text-xs text-slate-400 block">25-Yr Lifetime Savings</span>
+                      <span className="text-xl font-extrabold text-amber-300">{formatINR(metrics.est25YrSavingsINR, true)}</span>
+                    </div>
+                  </div>
+
+                  {/* Financial Breakdown with PM Surya Ghar Subsidy */}
+                  <div className="p-4 rounded-2xl bg-orange-500/10 border border-orange-500/20 space-y-2 text-xs">
+                    <div className="flex justify-between text-slate-300">
+                      <span>Gross Installation Cost:</span>
+                      <span>{formatINR(metrics.systemCostBeforeSubsidy)}</span>
+                    </div>
+                    <div className="flex justify-between text-emerald-400 font-extrabold">
+                      <span>PM Surya Ghar Govt Subsidy:</span>
+                      <span>-{formatINR(metrics.subsidyINR)}</span>
+                    </div>
+                    <div className="flex justify-between text-white font-black pt-2 border-t border-white/10 text-sm">
+                      <span>Net Investment:</span>
+                      <span className="text-amber-400">{formatINR(metrics.netSystemCostINR)}</span>
+                    </div>
+                    <div className="text-[11px] text-slate-400 text-right pt-1">
+                      Estimated Payback Period: <strong className="text-white">{metrics.paybackYears} Years</strong>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={() => handleOpenModal(`Solar Calculator Result - ${metrics.systemSizeKw}kW System (${formatINR(monthlyBill)} bill)`)}
+                    className="w-full py-4 rounded-xl font-black text-slate-950 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-400 hover:from-orange-400 shadow-lg text-sm flex items-center justify-center gap-2 transition-all"
+                  >
+                    Lock In Quote & Claim Subsidy <Icon name="arrow-right" className="w-4 h-4" />
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+
+          {/* SECTION 5: SOLAR MYTHS VS FACTS (INTERACTIVE ACCORDION) */}
+          <section id="myths" className="py-24 bg-[#0F1117] border-t border-white/10">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+              
+              <div className="text-center space-y-4">
+                <span className="text-xs font-extrabold text-orange-400 uppercase tracking-widest bg-orange-500/10 px-4 py-1.5 rounded-full border border-orange-500/30">
+                  Solar Misconceptions Cleared
+                </span>
+                <h2 className="text-3xl sm:text-5xl font-black text-white">Solar Panel Myths vs Facts</h2>
+                <p className="text-slate-300 text-sm sm:text-base">Click any myth below to reveal the actual engineering fact behind solar power performance.</p>
+              </div>
+
+              <div className="space-y-4">
+                {[
+                  {
+                    myth: "MYTH #1: Solar panels don't produce power on rainy or cloudy days.",
+                    fact: "FACT: False! Solar panels utilize light photons (UV & diffused daylight), not heat. Even under dense monsoon clouds, modern Mono PERC panels produce 15% to 30% of their rated output."
+                  },
+                  {
+                    myth: "MYTH #2: Solar panels damage roof structures or cause leaks.",
+                    fact: "FACT: False! Precision solar racking is anchored using rubberized waterproofing gaskets and elevated legs. Solar panels actually protect your roof tiles from harsh UV exposure and weathering!"
+                  },
+                  {
+                    myth: "MYTH #3: Solar power plants are too expensive for common households.",
+                    fact: "FACT: False! Under PM Surya Ghar Muft Bijli Yojana, direct bank subsidies up to ₹78,000 are provided. Zero-down EMI financing often makes monthly EMI lower than your existing DISCOM bill!"
+                  },
+                  {
+                    myth: "MYTH #4: Solar panels require heavy daily maintenance and cleaning.",
+                    fact: "FACT: False! Solar PV systems have zero moving parts. Natural rain cleans off most dust, and a simple water hose spray once or twice a month maintains peak 99% efficiency."
+                  },
+                  {
+                    myth: "MYTH #5: Solar panels stop working after 10 years.",
+                    fact: "FACT: False! Tier-1 solar panels come standard with 25-year linear performance warranties. They degrade by less than 0.5% annually and continue producing clean power for 30+ years."
+                  },
+                ].map((item, idx) => (
+                  <div
+                    key={idx}
+                    onClick={() => setActiveMyth(activeMyth === idx ? null : idx)}
+                    className="glass-card rounded-2xl p-5 border border-white/10 cursor-pointer transition-all hover:border-orange-500/40"
+                  >
+                    <div className="flex justify-between items-center gap-4">
+                      <h4 className="text-sm sm:text-base font-bold text-amber-300 flex items-center gap-2">
+                        <Icon name="help-circle" className="w-4 h-4 text-orange-400 shrink-0" />
+                        {item.myth}
+                      </h4>
+                      <Icon name={activeMyth === idx ? "chevron-up" : "chevron-down"} className="w-5 h-5 text-slate-400 shrink-0" />
+                    </div>
+                    {activeMyth === idx && (
+                      <div className="mt-4 pt-4 border-t border-white/10 text-xs sm:text-sm text-slate-200 leading-relaxed bg-orange-500/5 p-4 rounded-xl border border-orange-500/20 animate-fadeIn">
+                        {item.fact}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </section>
+
+          {/* SECTION 6: INTERACTIVE SOLAR READINESS QUIZ */}
+          <section id="quiz" className="py-24 bg-[#0F1117] border-t border-white/10">
+            <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+              
+              <div className="text-center space-y-4">
+                <span className="text-xs font-extrabold text-orange-400 uppercase tracking-widest bg-orange-500/10 px-4 py-1.5 rounded-full border border-orange-500/30">
+                  1-Minute Assessment
+                </span>
+                <h2 className="text-3xl sm:text-5xl font-black text-white">Is Solar Right for Your Roof?</h2>
+                <p className="text-slate-300 text-sm">Answer 4 quick questions to receive a customized roof feasibility score and system recommendation.</p>
+              </div>
+
+              <div className="glass-card rounded-3xl p-6 sm:p-10 border border-orange-500/30 space-y-8 shadow-2xl relative">
+                
+                {quizFinished ? (
+                  <div className="text-center space-y-6 py-6 animate-fadeIn">
+                    <div className="w-20 h-20 mx-auto rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center text-3xl">
+                      ✓
+                    </div>
+                    <div className="space-y-2">
+                      <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">Feasibility Score: 96% Excellent Fit!</span>
+                      <h3 className="text-3xl font-black text-white">Your Roof is Ideal For Solar Power!</h3>
+                      <p className="text-xs text-slate-300 max-w-md mx-auto leading-relaxed">
+                        Based on your inputs (<strong className="text-amber-400">{quizAnswers.property}</strong> with <strong className="text-amber-400">{quizAnswers.shading}</strong>), a <strong>3kW – 5kW Solar System</strong> can eliminate up to 90% of your power bills and qualify for ₹78,000 PM Surya Ghar subsidy!
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
+                      <a
+                        href={getWhatsAppUrl(`Namaste! I completed the Solar Basics Quiz on your website.\nProperty: ${quizAnswers.property}\nMonthly Bill: ${quizAnswers.bill}\nShade: ${quizAnswers.shading}\nPower Cuts: ${quizAnswers.powerCuts}\nPlease share recommended solar system proposal.`)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-6 py-3.5 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-emerald-400 to-amber-400 text-xs flex items-center justify-center gap-2 shadow-lg"
+                      >
+                        <Icon name="message-square" className="w-4 h-4" /> Send Quiz Result on WhatsApp
+                      </a>
+                      <button
+                        onClick={() => { setQuizFinished(false); setQuizStep(1); }}
+                        className="px-5 py-3.5 rounded-xl font-semibold text-slate-300 bg-white/5 border border-white/10 text-xs"
+                      >
+                        Retake Quiz
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="space-y-6">
+                    {/* Stepper Progress Bar */}
+                    <div className="flex justify-between items-center text-xs font-bold text-slate-400 pb-2 border-b border-white/10">
+                      <span>Question {quizStep} of 4</span>
+                      <span className="text-orange-400">{quizStep * 25}% Completed</span>
+                    </div>
+
+                    {/* Step 1 */}
+                    {quizStep === 1 && (
+                      <div className="space-y-4 animate-fadeIn">
+                        <h4 className="text-lg font-bold text-white">1. What type of property do you own?</h4>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          {['Independent House / Villa', 'Commercial Shop / Office', 'Apartment Rooftop', 'Agricultural Farm'].map((opt) => (
+                            <button
+                              key={opt}
+                              onClick={() => { setQuizAnswers({...quizAnswers, property: opt}); setQuizStep(2); }}
+                              className={`p-4 rounded-xl border text-left text-xs font-bold transition-all ${quizAnswers.property === opt ? 'bg-orange-500/20 border-orange-500 text-orange-300' : 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10'}`}
+                            >
+                              {opt}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Step 2 */}
+                    {quizStep === 2 && (
+                      <div className="space-y-4 animate-fadeIn">
+                        <h4 className="text-lg font-bold text-white">2. What is your average monthly electricity bill?</h4>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          {['Under ₹2,000 / month', '₹2,000 - ₹5,000 / month', '₹5,000 - ₹12,000 / month', 'Above ₹12,000 / month'].map((opt) => (
+                            <button
+                              key={opt}
+                              onClick={() => { setQuizAnswers({...quizAnswers, bill: opt}); setQuizStep(3); }}
+                              className={`p-4 rounded-xl border text-left text-xs font-bold transition-all ${quizAnswers.bill === opt ? 'bg-orange-500/20 border-orange-500 text-orange-300' : 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10'}`}
+                            >
+                              {opt}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Step 3 */}
+                    {quizStep === 3 && (
+                      <div className="space-y-4 animate-fadeIn">
+                        <h4 className="text-lg font-bold text-white">3. How much sunlight exposure does your roof get?</h4>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          {['Zero Shade (Full Sun 9 AM - 5 PM)', 'Minimal Shadow (Trees / Nearby Wall)', 'Heavy Shadow Most Days', 'Not Sure'].map((opt) => (
+                            <button
+                              key={opt}
+                              onClick={() => { setQuizAnswers({...quizAnswers, shading: opt}); setQuizStep(4); }}
+                              className={`p-4 rounded-xl border text-left text-xs font-bold transition-all ${quizAnswers.shading === opt ? 'bg-orange-500/20 border-orange-500 text-orange-300' : 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10'}`}
+                            >
+                              {opt}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Step 4 */}
+                    {quizStep === 4 && (
+                      <div className="space-y-4 animate-fadeIn">
+                        <h4 className="text-lg font-bold text-white">4. Do you experience power grid outages in your area?</h4>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          {['Frequent Daily Power Cuts', 'Occasional Outages', 'Rarely / Never', 'Need 24/7 Battery Backup'].map((opt) => (
+                            <button
+                              key={opt}
+                              onClick={() => { setQuizAnswers({...quizAnswers, powerCuts: opt}); handleQuizSubmit(); }}
+                              className={`p-4 rounded-xl border text-left text-xs font-bold transition-all ${quizAnswers.powerCuts === opt ? 'bg-orange-500/20 border-orange-500 text-orange-300' : 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10'}`}
+                            >
+                              {opt}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Step Nav Controls */}
+                    <div className="flex justify-between pt-4 border-t border-white/10">
+                      {quizStep > 1 && (
+                        <button onClick={() => setQuizStep(quizStep - 1)} className="px-4 py-2 rounded-xl text-xs font-semibold bg-white/5 text-slate-300">
+                          ← Back
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+              </div>
+
+            </div>
+          </section>
+
+          {/* FOOTER */}
+          <footer className="py-12 bg-[#08090C] border-t border-white/10 text-xs text-slate-400">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="space-y-1 text-center md:text-left">
+                <div className="flex items-center justify-center md:justify-start gap-2">
+                  <span className="font-black text-white text-lg">SOLAR<span className="text-orange-500">BASICS</span> 101</span>
+                </div>
+                <p className="text-[11px] text-slate-400">Master Solar Energy, Photovoltaic Principles & PM Surya Ghar Subsidy Sizing.</p>
+              </div>
+              
+              <div className="flex items-center gap-4">
+                <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5 font-bold hover:bg-emerald-500/30 transition-all">
+                  <Icon name="message-square" className="w-4 h-4" /> WhatsApp Consultation ({PHONE_DISPLAY})
+                </a>
+              </div>
+            </div>
+          </footer>
+
+          {/* MOBILE STICKY CTA */}
+          <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0F1117]/95 border-t border-orange-500/30 p-3 flex gap-2 backdrop-blur-md">
+            <a
+              href={getWhatsAppUrl("Namaste! I am visiting Solar Basics 101 website and want a free solar feasibility consultation.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 py-3 font-bold text-slate-950 bg-gradient-to-r from-emerald-400 via-amber-400 to-yellow-400 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-lg"
+            >
+              <Icon name="message-square" className="w-4 h-4 text-emerald-950" /> Get Free Consultation on WhatsApp
+            </a>
+          </div>
+
+          {/* MODAL FORM */}
+          {modalOpen && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
+              <div className="relative w-full max-w-lg bg-[#121620] border border-orange-500/30 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl">
+                <div className="flex justify-between items-center border-b border-white/10 pb-4">
+                  <div>
+                    <h3 className="text-xl font-black text-white">Solar Basics Consultation</h3>
+                    <p className="text-xs text-slate-400">{modalTopic}</p>
+                  </div>
+                  <button onClick={() => setModalOpen(false)} className="p-2 rounded-full bg-white/5 text-slate-300 hover:bg-white/10">✕</button>
+                </div>
+
+                <div className="space-y-4">
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    Connect directly with a solar engineer to analyze your rooftop layout, calculate PM Surya Ghar subsidies, and receive a customized 3D solar array design.
+                  </p>
+
+                  <a
+                    href={getWhatsAppUrl(`Namaste! I want an expert solar consultation regarding: ${modalTopic}`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-4 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-emerald-400 via-amber-400 to-yellow-400 text-xs flex items-center justify-center gap-2 shadow-lg"
+                  >
+                    <Icon name="message-square" className="w-4 h-4 text-emerald-950" /> Chat Instantly on WhatsApp ({PHONE_DISPLAY})
+                  </a>
+
+                  <button
+                    onClick={() => setModalOpen(false)}
+                    className="w-full py-3 rounded-xl font-semibold text-slate-300 bg-white/5 border border-white/10 text-xs"
+                  >
+                    Close Window
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
