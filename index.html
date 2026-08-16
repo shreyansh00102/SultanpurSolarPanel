@@ -1147,6 +1147,22 @@
             </a>
           </div>
 
+          {/* FLOATING FIXED WHATSAPP "CONNECT US" BUTTON */}
+          <a
+            href={getWhatsAppUrl("Namaste Sultanpur Solar Panel! I want to connect with you for a free rooftop solar consultation.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fixed bottom-20 sm:bottom-8 right-5 sm:right-8 z-50 px-4 py-3 rounded-full bg-gradient-to-r from-emerald-400 via-emerald-500 to-green-500 hover:from-emerald-300 hover:to-green-400 text-slate-950 font-black text-xs sm:text-sm flex items-center gap-2.5 shadow-2xl shadow-emerald-500/50 border border-emerald-300/80 hover:scale-105 active:scale-95 transition-all group"
+            title="Connect Us on WhatsApp"
+          >
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-950 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-950"></span>
+            </span>
+            <Icon name="message-circle" className="w-5 h-5 text-slate-950 shrink-0" />
+            <span className="tracking-wide">Connect Us</span>
+          </a>
+
           {/* MODAL FORM */}
           {modalOpen && (
             <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
