@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- Main Home Page -->
+  <url>
+    <loc>http://sultanpursolar.in/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- How Solar Works Section -->
+  <url>
+    <loc>http://sultanpursolar.in/#how-it-works</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Panel Types Comparison -->
+  <url>
+    <loc>http://sultanpursolar.in/#panel-types</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- System Anatomy & Hardware Components -->
+  <url>
+    <loc>http://sultanpursolar.in/#components</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Solar Sizing & PM Surya Ghar Subsidy Calculator -->
+  <url>
+    <loc>http://sultanpursolar.in/#calculator</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Sultanpur Projects & Case Studies -->
+  <url>
+    <loc>http://sultanpursolar.in/#case-studies</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Myths vs Facts Accordion -->
+  <url>
+    <loc>http://sultanpursolar.in/#myths</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- 1-Minute Solar Readiness Quiz -->
+  <url>
+    <loc>http://sultanpursolar.in/#quiz</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+</urlset>

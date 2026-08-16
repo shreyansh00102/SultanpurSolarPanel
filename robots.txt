@@ -1,0 +1,6 @@
+# robots.txt for Sultanpur Solar Panel (http://sultanpursolar.in/)
+User-agent: *
+Allow: /
+
+# XML Sitemap Link for Search Engines
+Sitemap: http://sultanpursolar.in/sitemap.xml
