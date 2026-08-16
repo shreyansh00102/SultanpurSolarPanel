@@ -5,7 +5,7 @@
   
   <!-- Main Home Page -->
   <url>
-    <loc>http://sultanpursolar.in/</loc>
+    <loc>https://sultanpur-solar-panel.vercel.app/</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.00</priority>
@@ -13,7 +13,7 @@
 
   <!-- How Solar Works Section -->
   <url>
-    <loc>http://sultanpursolar.in/#how-it-works</loc>
+    <loc>https://sultanpur-solar-panel.vercel.app/#how-it-works</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
@@ -21,7 +21,7 @@
 
   <!-- Panel Types Comparison -->
   <url>
-    <loc>http://sultanpursolar.in/#panel-types</loc>
+    <loc>https://sultanpur-solar-panel.vercel.app/#panel-types</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
@@ -29,7 +29,7 @@
 
   <!-- System Anatomy & Hardware Components -->
   <url>
-    <loc>http://sultanpursolar.in/#components</loc>
+    <loc>https://sultanpur-solar-panel.vercel.app/#components</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
@@ -37,7 +37,7 @@
 
   <!-- Solar Sizing & PM Surya Ghar Subsidy Calculator -->
   <url>
-    <loc>http://sultanpursolar.in/#calculator</loc>
+    <loc>https://sultanpur-solar-panel.vercel.app/#calculator</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
@@ -45,7 +45,7 @@
 
   <!-- Sultanpur Projects & Case Studies -->
   <url>
-    <loc>http://sultanpursolar.in/#case-studies</loc>
+    <loc>https://sultanpur-solar-panel.vercel.app/#case-studies</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -53,7 +53,7 @@
 
   <!-- Myths vs Facts Accordion -->
   <url>
-    <loc>http://sultanpursolar.in/#myths</loc>
+    <loc>https://sultanpur-solar-panel.vercel.app/#myths</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
@@ -69,7 +69,7 @@
 
   <!-- 1-Minute Solar Readiness Quiz -->
   <url>
-    <loc>http://sultanpursolar.in/#quiz</loc>
+    <loc>https://sultanpur-solar-panel.vercel.app/#quiz</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>

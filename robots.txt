@@ -1,6 +1,6 @@
-# robots.txt for Sultanpur Solar Panel (http://sultanpursolar.in/)
+# robots.txt for Sultanpur Solar Panel (https://sultanpur-solar-panel.vercel.app/)
 User-agent: *
 Allow: /
 
 # XML Sitemap Link for Search Engines
-Sitemap: http://sultanpursolar.in/sitemap.xml
+Sitemap: https://sultanpur-solar-panel.vercel.app/sitemap.xml
