@@ -102,10 +102,10 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "What is the PM Surya Ghar Subsidy on 3 kW Solar Panel in Sultanpur?",
+            "name": "How much subsidy do I get under PM Surya Ghar Muft Bijli Yojana in Sultanpur UP?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Under PM Surya Ghar Muft Bijli Yojana, residents in Sultanpur UP receive direct bank subsidy up to ₹78,000 for a 3 kW rooftop solar system."
+              "text": "Under PM Surya Ghar Yojana, residents in Sultanpur UP receive direct bank account subsidies: ₹30,000 for 1 kW, ₹60,000 for 2 kW, and up to ₹78,000 max flat subsidy for 3 kW and higher capacity rooftop solar systems."
             }
           },
           {
@@ -114,6 +114,38 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Sultanpur Solar Panel located at Mahuwariya, Sultanpur (228001) is the top-rated solar installer providing 1-day installation, UPPCL net metering, and 25-year warranty."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does solar panel installation take in Sultanpur?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sultanpur Solar Panel completes standard 3 kW to 10 kW residential rooftop solar installations in just 1 single day with certified master electricians."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does UPPCL Net Metering work in Sultanpur?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A bi-directional Net Meter measures electricity imported from UPPCL grid at night and surplus solar power exported to grid in daytime. Your monthly bill is generated only for net difference."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do solar panels work during power cuts in Sultanpur?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "With a Hybrid Solar System with Lithium Battery Storage, your home stays 100% powered without interruption (10ms auto-switch) during grid power cuts."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the estimated payback period for solar in Sultanpur?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "With PM Surya Ghar subsidies and high sunlight availability in UP, most residential systems pay for themselves within 2.5 to 3.5 years."
             }
           }
         ]
@@ -315,6 +347,7 @@
       const [modalTopic, setModalTopic] = useState('Sultanpur Solar Free Quote');
 
       const [activeMyth, setActiveMyth] = useState(null);
+      const [activeFaq, setActiveFaq] = useState(0);
 
       useEffect(() => {
         let step = 0;
@@ -392,6 +425,7 @@
                 </a>
                 <a href="#case-studies" className="hover:text-orange-400 transition-colors">Sultanpur Projects</a>
                 <a href="#myths" className="hover:text-orange-400 transition-colors">Myths vs Facts</a>
+                <a href="#faqs" className="hover:text-orange-400 transition-colors">FAQs</a>
                 <a href="#quiz" className="hover:text-orange-400 transition-colors">Solar Quiz</a>
               </nav>
 
@@ -894,6 +928,76 @@
                     {activeMyth === idx && (
                       <div className="mt-4 pt-4 border-t border-white/10 text-xs sm:text-sm text-slate-200 leading-relaxed bg-orange-500/5 p-4 rounded-xl border border-orange-500/20">
                         {item.fact}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* FREQUENTLY ASKED QUESTIONS (FAQS) SECTION */}
+          <section id="faqs" className="py-24 bg-[#0F1117] border-t border-white/10">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+              <div className="text-center space-y-4">
+                <span className="text-xs font-extrabold text-orange-400 uppercase tracking-widest bg-orange-500/10 px-4 py-1.5 rounded-full border border-orange-500/30">
+                  Got Questions? We Have Answers!
+                </span>
+                <h2 className="text-3xl sm:text-5xl font-black text-white">Frequently Asked Questions</h2>
+                <p className="text-slate-300 text-sm sm:text-base">Everything you need to know about rooftop solar panel installation, PM Surya Ghar subsidies, and net metering in Sultanpur UP.</p>
+              </div>
+
+              <div className="space-y-4">
+                {[
+                  {
+                    q: "How much subsidy do I get under PM Surya Ghar Muft Bijli Yojana in Sultanpur UP?",
+                    a: "Under PM Surya Ghar Muft Bijli Yojana, residential homeowners receive direct bank account subsidies: ₹30,000 for 1 kW, ₹60,000 for 2 kW, and a flat maximum of ₹78,000 for 3 kW and higher capacity rooftop solar systems."
+                  },
+                  {
+                    q: "How long does solar panel installation take in Sultanpur (228001)?",
+                    a: "Sultanpur Solar Panel completes standard 3 kW to 10 kW residential rooftop solar installations in just 1 single day! Our master electricians handle mounting racking, panel stringing, inverter wiring, and safety switchgear setup."
+                  },
+                  {
+                    q: "How does UPPCL Net Metering work in Sultanpur?",
+                    a: "A bi-directional Net Meter measures electricity imported from UPPCL grid at night and surplus solar electricity exported to the grid in daytime. Your monthly DISCOM bill is calculated only for the net difference, bringing your electricity expenses down by up to 90%."
+                  },
+                  {
+                    q: "Do solar panels work during power grid cuts in Sultanpur?",
+                    a: "With an On-Grid system, the inverter turns off during power cuts for line-worker safety. If you choose a Hybrid Solar System with Lithium Battery Storage, your home stays 100% powered without interruption (10ms instant switch) during power cuts."
+                  },
+                  {
+                    q: "What is the warranty period for solar panels and inverters?",
+                    a: "Tier-1 Monocrystalline PERC panels come standard with a 25 to 30-year linear performance warranty (degrading less than 0.5% per year). Inverters and lithium battery storage systems carry a 5 to 10-year manufacturer warranty."
+                  },
+                  {
+                    q: "What is the estimated payback period for a rooftop solar system in Sultanpur?",
+                    a: "With PM Surya Ghar subsidies and high sunlight availability in UP, most residential solar systems pay for themselves within 2.5 to 3.5 years. After payback, you enjoy 20+ years of 100% free green electricity!"
+                  },
+                  {
+                    q: "Are ₹0 Down EMI financing options available for solar installation?",
+                    a: "Yes! We partner with leading nationalized banks (SBI, PNB, Bank of Baroda, Union Bank) to offer low-interest solar loans with ₹0 down payment options. Your monthly EMI is usually lower than your current electricity bill!"
+                  },
+                  {
+                    q: "How much roof area is required for a 3 kW solar plant?",
+                    a: "A 3 kW rooftop solar array using modern high-efficiency 450W Mono PERC panels requires approximately 200 to 250 sq. ft. of unshaded terrace space."
+                  }
+                ].map((item, idx) => (
+                  <div
+                    key={idx}
+                    onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
+                    className="glass-card rounded-2xl p-5 border border-white/10 cursor-pointer transition-all hover:border-orange-500/40"
+                  >
+                    <div className="flex justify-between items-center gap-4">
+                      <h4 className="text-sm sm:text-base font-bold text-white flex items-center gap-2.5">
+                        <span className="w-6 h-6 rounded-lg bg-orange-500/20 text-orange-400 flex items-center justify-center text-xs font-black shrink-0">Q</span>
+                        {item.q}
+                      </h4>
+                      <Icon name={activeFaq === idx ? "chevron-up" : "chevron-down"} className="w-5 h-5 text-slate-400 shrink-0" />
+                    </div>
+                    {activeFaq === idx && (
+                      <div className="mt-4 pt-4 border-t border-white/10 text-xs sm:text-sm text-slate-200 leading-relaxed bg-white/[0.02] p-4 rounded-xl border border-white/5 animate-fadeIn">
+                        <strong className="text-emerald-400 block mb-1">Answer:</strong>
+                        {item.a}
                       </div>
                     )}
                   </div>

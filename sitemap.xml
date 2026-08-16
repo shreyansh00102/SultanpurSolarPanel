@@ -59,6 +59,14 @@
     <priority>0.70</priority>
   </url>
 
+  <!-- Frequently Asked Questions (FAQs) -->
+  <url>
+    <loc>http://sultanpursolar.in/#faqs</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
   <!-- 1-Minute Solar Readiness Quiz -->
   <url>
     <loc>http://sultanpursolar.in/#quiz</loc>
