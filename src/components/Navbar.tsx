@@ -42,7 +42,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuote }) => {
             className="flex items-center gap-3 cursor-pointer group"
           >
             <div className="h-10 sm:h-12 w-10 sm:w-12 rounded-xl bg-white p-0.5 shadow-lg shadow-orange-500/20 group-hover:scale-105 transition-transform shrink-0 overflow-hidden flex items-center justify-center border border-white/20">
-              <img src="/logo.png" alt="Sultanpur Solar Panel Official Logo" className="w-full h-full object-contain rounded-lg bg-white" />
+              <img src="/official-logo.png?v=3" alt="Sultanpur Solar Panel Official Logo" className="w-full h-full object-contain rounded-lg bg-white" />
             </div>
             <div>
               <div className="flex items-center gap-2">

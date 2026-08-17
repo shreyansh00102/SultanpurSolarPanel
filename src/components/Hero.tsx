@@ -156,7 +156,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuote, onScrollToCalculator })
 
                 {/* Official Logo Brand Stamp */}
                 <div className="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white/95 backdrop-blur-md border border-white/40 shadow-md">
-                  <img src="/logo.png" className="h-5 w-5 object-contain rounded bg-white" alt="Official Logo" />
+                  <img src="/official-logo.png?v=3" className="h-5 w-5 object-contain rounded bg-white" alt="Official Logo" />
                   <span className="text-[10px] font-black text-slate-950">Verified Brand</span>
                 </div>
 

@@ -63,7 +63,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
           </button>
 
           <div className="flex items-center gap-3">
-            <img src="/logo.png" alt="Sultanpur Solar Official Logo" className="h-11 w-11 object-contain rounded-xl bg-white p-0.5 border border-white/20 shadow-md shrink-0" />
+            <img src="/official-logo.png?v=3" alt="Sultanpur Solar Official Logo" className="h-11 w-11 object-contain rounded-xl bg-white p-0.5 border border-white/20 shadow-md shrink-0" />
             <div className="space-y-1">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-xs font-bold border border-orange-500/30">
                 <Sparkles className="w-3.5 h-3.5" /> PM Surya Ghar Subsidy Eligible
