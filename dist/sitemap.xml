@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- Main Home Page -->
+  <url>
+    <loc>https://sultanpur-solar-panel.vercel.app/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- How Solar Works Section -->
+  <url>
+    <loc>https://sultanpur-solar-panel.vercel.app/#how-it-works</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Panel Types Comparison -->
+  <url>
+    <loc>https://sultanpur-solar-panel.vercel.app/#panel-types</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- System Anatomy & Hardware Components -->
+  <url>
+    <loc>https://sultanpur-solar-panel.vercel.app/#components</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Solar Sizing & PM Surya Ghar Subsidy Calculator -->
+  <url>
+    <loc>https://sultanpur-solar-panel.vercel.app/#calculator</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Sultanpur Projects & Case Studies -->
+  <url>
+    <loc>https://sultanpur-solar-panel.vercel.app/#case-studies</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Myths vs Facts Accordion -->
+  <url>
+    <loc>https://sultanpur-solar-panel.vercel.app/#myths</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Frequently Asked Questions (FAQs) -->
+  <url>
+    <loc>https://sultanpur-solar-panel.vercel.app/#faqs</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 1-Minute Solar Readiness Quiz -->
+  <url>
+    <loc>https://sultanpur-solar-panel.vercel.app/#quiz</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+</urlset>
