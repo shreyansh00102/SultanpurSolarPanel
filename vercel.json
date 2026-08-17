@@ -1,8 +1,20 @@
 {
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "official-logo.png", "use": "@vercel/static" },
+    { "src": "logo.png", "use": "@vercel/static" },
+    { "src": "logo.jpg", "use": "@vercel/static" },
+    { "src": "residential_install.jpg", "use": "@vercel/static" },
+    { "src": "house1.png", "use": "@vercel/static" },
+    { "src": "house2.png", "use": "@vercel/static" },
+    { "src": "house3.png", "use": "@vercel/static" },
+    { "src": "robots.txt", "use": "@vercel/static" },
+    { "src": "sitemap.xml", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
