@@ -41,21 +41,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuote }) => {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center gap-3 cursor-pointer group"
           >
-            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 via-orange-500 to-amber-400 p-[2px] shadow-lg shadow-orange-500/20 group-hover:scale-105 transition-transform duration-300">
-              <div className="w-full h-full bg-[#0F1117] rounded-[10px] flex items-center justify-center">
-                <Sun className="w-6 h-6 text-orange-500 animate-spin-slow group-hover:text-amber-400 transition-colors" />
-              </div>
+            <div className="h-10 sm:h-12 w-10 sm:w-12 rounded-xl bg-white p-0.5 shadow-lg shadow-orange-500/20 group-hover:scale-105 transition-transform shrink-0 overflow-hidden flex items-center justify-center border border-white/20">
+              <img src="/logo.png" alt="Sultanpur Solar Panel Official Logo" className="w-full h-full object-contain rounded-lg bg-white" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-xl font-bold tracking-tight text-white font-sans">
-                  SULTANPUR<span className="text-orange-500">SOLAR</span>
+                <span className="text-lg sm:text-xl font-extrabold tracking-tight text-white font-sans">
+                  SULTANPUR<span className="text-orange-500"> SOLAR PANEL</span>
                 </span>
-                <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-orange-500/10 text-orange-400 border border-orange-500/20">
-                  ₹ INR
+                <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-orange-500/10 text-orange-400 border border-orange-500/20 uppercase tracking-wider">
+                  #1 IN SULTANPUR
                 </span>
               </div>
-              <p className="text-[10px] text-slate-400 font-medium tracking-wide">SULTANPUR, UP • TOP RATED</p>
+              <p className="text-[10px] text-slate-400 font-medium tracking-wide">MAHUWARIYA, SULTANPUR, UP 228001</p>
             </div>
           </div>
 
@@ -98,11 +96,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuote }) => {
           {/* Right Action CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <a 
-              href="tel:+919876543210" 
+              href="tel:+917068286755" 
               className="flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white transition-colors px-3 py-2 rounded-lg border border-white/5 bg-white/5 hover:bg-white/10"
             >
               <PhoneCall className="w-3.5 h-3.5 text-amber-400" />
-              +91 98765 43210
+              +91 70682 86755
             </a>
             <button
               onClick={() => onOpenQuote()}

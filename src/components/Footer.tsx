@@ -26,14 +26,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote }) => {
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="flex items-center gap-3 cursor-pointer"
             >
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 via-orange-500 to-amber-400 p-[2px]">
-                <div className="w-full h-full bg-[#0F1117] rounded-[10px] flex items-center justify-center">
-                  <Sun className="w-5 h-5 text-orange-500" />
-                </div>
+              <img src="/logo.png" alt="Sultanpur Solar Panel Official Logo" className="h-12 w-12 object-contain rounded-xl bg-white p-0.5 border border-white/20 shadow-md shrink-0" />
+              <div>
+                <span className="text-xl font-extrabold tracking-tight text-white block leading-tight">
+                  SULTANPUR<span className="text-orange-500"> SOLAR PANEL</span>
+                </span>
+                <span className="text-[10px] text-slate-400 font-medium">Powering Sultanpur, Energizing Future</span>
               </div>
-              <span className="text-xl font-extrabold tracking-tight text-white">
-                SULTANPUR<span className="text-orange-500">SOLAR</span>
-              </span>
             </div>
 
             <p className="text-xs text-slate-300 max-w-sm leading-relaxed">
@@ -47,7 +46,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote }) => {
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-amber-400 shrink-0" />
-                <a href="tel:+919876543210" className="hover:text-white transition-colors">+91 98765 43210</a>
+                <a href="tel:+917068286755" className="hover:text-white transition-colors">+91 70682 86755</a>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-yellow-400 shrink-0" />

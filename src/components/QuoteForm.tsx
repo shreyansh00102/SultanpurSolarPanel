@@ -62,12 +62,15 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
             <X className="w-5 h-5" />
           </button>
 
-          <div className="space-y-1">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-xs font-bold border border-orange-500/30">
-              <Sparkles className="w-3.5 h-3.5" /> PM Surya Ghar Subsidy Eligible
-            </span>
-            <h3 className="text-2xl font-extrabold text-white">Get Your Free Solar Quote</h3>
-            <p className="text-xs text-slate-300">Fast 24-hour turnaround • ₹0 Down options available in Sultanpur</p>
+          <div className="flex items-center gap-3">
+            <img src="/logo.png" alt="Sultanpur Solar Official Logo" className="h-11 w-11 object-contain rounded-xl bg-white p-0.5 border border-white/20 shadow-md shrink-0" />
+            <div className="space-y-1">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-xs font-bold border border-orange-500/30">
+                <Sparkles className="w-3.5 h-3.5" /> PM Surya Ghar Subsidy Eligible
+              </span>
+              <h3 className="text-2xl font-extrabold text-white">Get Your Free Solar Quote</h3>
+              <p className="text-xs text-slate-300">Fast 24-hour turnaround • ₹0 Down options available in Sultanpur</p>
+            </div>
           </div>
 
           {/* Progress Step Bar */}

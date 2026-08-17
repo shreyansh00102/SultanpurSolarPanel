@@ -142,8 +142,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuote, onScrollToCalculator })
               {/* Image Preview with overlay */}
               <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden mb-6 border border-white/10 group">
                 <img 
-                  src="https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1000&q=80" 
-                  alt="Sultanpur Solar Installation"
+                  src="/residential_install.jpg" 
+                  alt="Sultanpur Solar Installation Mahuwariya UP"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F1117] via-transparent to-transparent opacity-80" />
@@ -152,6 +152,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuote, onScrollToCalculator })
                 <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0F1117]/80 backdrop-blur-md border border-white/20 text-xs text-white">
                   <Sun className="w-4 h-4 text-amber-400 animate-spin-slow" />
                   <span>Sultanpur Sun Index: <strong className="text-amber-300">300+ Sunny Days</strong></span>
+                </div>
+
+                {/* Official Logo Brand Stamp */}
+                <div className="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white/95 backdrop-blur-md border border-white/40 shadow-md">
+                  <img src="/logo.png" className="h-5 w-5 object-contain rounded bg-white" alt="Official Logo" />
+                  <span className="text-[10px] font-black text-slate-950">Verified Brand</span>
                 </div>
 
                 {/* Floating Live Generation Badge */}
