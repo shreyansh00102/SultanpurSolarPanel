@@ -29,9 +29,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote }) => {
               <img src="/official-logo.png?v=3" alt="Sultanpur Solar Panel Official Logo" className="h-12 w-12 object-contain rounded-xl bg-white p-0.5 border border-white/20 shadow-md shrink-0" />
               <div>
                 <span className="text-xl font-extrabold tracking-tight text-white block leading-tight">
-                  SULTANPUR<span className="text-orange-500"> SOLAR PANEL</span>
+                  SULTANPUR<span className="text-[#3CB043] font-black"> SOLAR PANEL</span>
                 </span>
-                <span className="text-[10px] text-slate-400 font-medium">Powering Sultanpur, Energizing Future</span>
+                <span className="text-[10px] text-amber-400 font-bold uppercase tracking-wider block">
+                  POWERING SULTANPUR, ENERGIZING FUTURE
+                </span>
               </div>
             </div>
 

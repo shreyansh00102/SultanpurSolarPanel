@@ -47,13 +47,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuote }) => {
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-lg sm:text-xl font-extrabold tracking-tight text-white font-sans">
-                  SULTANPUR<span className="text-orange-500"> SOLAR PANEL</span>
+                  SULTANPUR<span className="text-[#3CB043] font-black"> SOLAR PANEL</span>
                 </span>
                 <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-orange-500/10 text-orange-400 border border-orange-500/20 uppercase tracking-wider">
                   #1 IN SULTANPUR
                 </span>
               </div>
-              <p className="text-[10px] text-slate-400 font-medium tracking-wide">MAHUWARIYA, SULTANPUR, UP 228001</p>
+              <p className="text-[10px] text-amber-400 font-semibold tracking-wide uppercase">POWERING SULTANPUR, ENERGIZING FUTURE</p>
             </div>
           </div>
 
