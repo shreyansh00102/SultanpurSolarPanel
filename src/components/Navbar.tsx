@@ -33,32 +33,29 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuote }) => {
           : 'bg-gradient-to-b from-[#0F1117] to-transparent py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between gap-2">
           
           {/* Logo */}
           <div 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-3 cursor-pointer group"
+            className="flex items-center gap-2 sm:gap-3 cursor-pointer group min-w-0 shrink"
           >
-            <div className="h-10 sm:h-12 w-10 sm:w-12 rounded-xl bg-white p-0.5 shadow-lg shadow-orange-500/20 group-hover:scale-105 transition-transform shrink-0 overflow-hidden flex items-center justify-center border border-white/20">
+            <div className="h-9 sm:h-12 w-9 sm:w-12 rounded-xl bg-white p-0.5 shadow-lg shadow-orange-500/20 group-hover:scale-105 transition-transform shrink-0 overflow-hidden flex items-center justify-center border border-white/20">
               <img src="/official-logo.png?v=3" alt="Sultanpur Solar Panel Official Logo" className="w-full h-full object-contain rounded-lg bg-white" />
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="text-lg sm:text-xl font-extrabold tracking-tight text-white font-sans">
+            <div className="min-w-0">
+              <div className="flex items-center gap-1.5">
+                <span className="text-sm sm:text-xl font-extrabold tracking-tight text-white font-sans truncate">
                   SULTANPUR<span className="text-[#3CB043] font-black"> SOLAR PANEL</span>
                 </span>
-                <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-orange-500/10 text-orange-400 border border-orange-500/20 uppercase tracking-wider">
-                  #1 IN SULTANPUR
-                </span>
               </div>
-              <p className="text-[10px] text-amber-400 font-semibold tracking-wide uppercase">POWERING SULTANPUR, ENERGIZING FUTURE</p>
+              <p className="text-[9px] sm:text-[10px] text-amber-400 font-semibold tracking-wide uppercase truncate">POWERING SULTANPUR, ENERGIZING FUTURE</p>
             </div>
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-7">
+          <nav className="hidden md:flex items-center gap-7 shrink-0">
             <button 
               onClick={() => scrollTo('calculator')}
               className="text-sm font-medium text-slate-300 hover:text-orange-400 transition-colors flex items-center gap-1.5"
@@ -94,33 +91,33 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuote }) => {
           </nav>
 
           {/* Right Action CTA */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="flex items-center gap-1.5 sm:gap-4 shrink-0">
             <a 
               href="tel:+917068286755" 
-              className="flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white transition-colors px-3 py-2 rounded-lg border border-white/5 bg-white/5 hover:bg-white/10"
+              className="flex items-center gap-1.5 text-xs font-semibold text-slate-300 hover:text-white transition-colors px-2.5 py-2 rounded-lg border border-white/5 bg-white/5 hover:bg-white/10 shrink-0"
             >
-              <PhoneCall className="w-3.5 h-3.5 text-amber-400" />
-              +91 70682 86755
+              <PhoneCall className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+              <span className="hidden sm:inline">+91 70682 86755</span>
             </a>
             <button
               onClick={() => onOpenQuote()}
-              className="relative inline-flex items-center justify-center px-5 py-2.5 text-sm font-bold text-slate-950 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-400 rounded-xl shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 group overflow-hidden"
+              className="hidden sm:inline-flex relative items-center justify-center px-5 py-2.5 text-sm font-bold text-slate-950 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-400 rounded-xl shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 group overflow-hidden shrink-0"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Get Free Quote
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </span>
             </button>
-          </div>
 
-          {/* Mobile Menu Toggle Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white"
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            {/* Mobile Menu Toggle Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white shrink-0"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
 
         </div>
       </div>
