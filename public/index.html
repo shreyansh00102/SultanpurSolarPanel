@@ -1137,26 +1137,88 @@
             </div>
           </section>
 
-          {/* SECTION 14: FOOTER */}
-          <footer className="py-12 bg-[#050A14] border-t border-white/10 text-xs text-slate-400">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* SECTION 14: RICH PRO FOOTER */}
+          <footer className="py-16 bg-[#050A14] border-t border-white/10 text-xs text-slate-400">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
               
-              <div className="space-y-2 text-center md:text-left">
-                <div className="flex items-center justify-center md:justify-start gap-3">
-                  <img src="official-logo.png?v=3" alt="Sultanpur Solar Panel Official Logo" className="h-12 w-12 object-contain rounded-xl bg-white p-0.5 border border-white/20 shadow-md shrink-0" />
-                  <div>
-                    <span className="font-black text-white text-lg block leading-tight">SULTANPUR<span className="text-leaf-bright"> SOLAR PANEL</span></span>
-                    <span className="text-[10px] text-amber-400 font-bold uppercase tracking-wider block">Powering Sultanpur, Energizing Future</span>
+              {/* 4 Column Top Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                {/* Column 1: Brand & Identity */}
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <img src="official-logo.png?v=3" alt="Sultanpur Solar Panel Official Logo" className="h-12 w-12 object-contain rounded-xl bg-white p-0.5 border border-white/20 shadow-md shrink-0" />
+                    <div>
+                      <span className="font-black text-lg block leading-tight uppercase">
+                        <span className="text-[#FF9933]">SULTANPUR </span>
+                        <span className="text-white">SOLAR </span>
+                        <span className="text-[#138808]">PANEL</span>
+                      </span>
+                      <span className="text-[10px] text-amber-400 font-bold uppercase tracking-wider block">Powering Sultanpur, Energizing Future</span>
+                    </div>
+                  </div>
+                  <p className="text-[11px] text-slate-300 leading-relaxed">
+                    Sultanpur's #1 MNRE & UPPCL approved rooftop solar installer. Providing high efficiency Monocrystalline PERC solar panels, battery backups, and PM Surya Ghar government subsidy assistance.
+                  </p>
+                </div>
+
+                {/* Column 2: Quick Links */}
+                <div className="space-y-3">
+                  <h4 className="text-sm font-extrabold text-white uppercase tracking-wider">Quick Navigation</h4>
+                  <ul className="space-y-2 text-slate-300">
+                    <li><a href="#hero" className="hover:text-solar-amber transition-colors">Home</a></li>
+                    <li><a href="#about" className="hover:text-solar-amber transition-colors">About Company</a></li>
+                    <li><a href="#services" className="hover:text-solar-amber transition-colors">Solar Services</a></li>
+                    <li><a href="#products" className="hover:text-solar-amber transition-colors">Panels & Inverters</a></li>
+                    <li><a href="#calculator" className="hover:text-solar-amber transition-colors">Savings Calculator</a></li>
+                    <li><a href="#gallery" className="hover:text-solar-amber transition-colors">Installation Gallery</a></li>
+                  </ul>
+                </div>
+
+                {/* Column 3: Solar Solutions */}
+                <div className="space-y-3">
+                  <h4 className="text-sm font-extrabold text-white uppercase tracking-wider">Solar Solutions</h4>
+                  <ul className="space-y-2 text-slate-300">
+                    <li><span className="hover:text-white cursor-pointer">3kW PM Surya Ghar System</span></li>
+                    <li><span className="hover:text-white cursor-pointer">5kW Monocrystalline PERC</span></li>
+                    <li><span className="hover:text-white cursor-pointer">10kW Hybrid Commercial Solar</span></li>
+                    <li><span className="hover:text-white cursor-pointer">UPPCL Net Metering Approval</span></li>
+                    <li><span className="hover:text-white cursor-pointer">₹0 Down EMI Financing</span></li>
+                    <li><span className="hover:text-white cursor-pointer">25-Year Performance Guarantee</span></li>
+                  </ul>
+                </div>
+
+                {/* Column 4: Contact & Location */}
+                <div className="space-y-3">
+                  <h4 className="text-sm font-extrabold text-white uppercase tracking-wider">Office & Contact</h4>
+                  <div className="space-y-2 text-slate-300">
+                    <div className="flex items-start gap-2">
+                      <Icon name="map-pin" className="w-4 h-4 text-solar-amber shrink-0 mt-0.5" />
+                      <span>Mahuwariya, Sultanpur, Uttar Pradesh 228001</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Icon name="phone-call" className="w-4 h-4 text-solar-amber shrink-0" />
+                      <a href={`tel:${PHONE_NUMBER}`} className="font-bold text-white hover:text-solar-amber">{PHONE_DISPLAY}</a>
+                    </div>
+                    <div className="flex items-center gap-2 text-[11px] text-slate-400">
+                      <Icon name="clock" className="w-4 h-4 text-leaf-bright shrink-0" />
+                      <span>Monday – Sunday (8:00 AM – 8:00 PM IST)</span>
+                    </div>
                   </div>
                 </div>
-                <p className="text-[11px] text-slate-400">Mahuwariya, Sultanpur, Uttar Pradesh 228001 • Call/WhatsApp: <a href={`tel:${PHONE_NUMBER}`} className="text-solar-amber font-bold">{PHONE_DISPLAY}</a></p>
-                <p className="text-[10px] text-slate-400">© 2026 Sultanpur Solar Panel. All rights reserved. UPPCL Approved Solar Energy Contractor.</p>
+
               </div>
 
-              <div className="flex items-center gap-4">
-                <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-xl bg-leaf-green text-white font-bold flex items-center gap-1.5 hover:bg-leaf-bright transition-all">
-                  <Icon name="message-circle" className="w-4 h-4" /> WhatsApp Us ({PHONE_DISPLAY})
-                </a>
+              {/* Bottom Copyright & Approval Bar */}
+              <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400 text-center sm:text-left">
+                <div>
+                  <p>© 2026 Sultanpur Solar Panel Pvt Ltd. All Rights Reserved.</p>
+                  <p className="text-[10px] text-slate-500">Mahuwariya, Sultanpur, UP 228001 • UPPCL & MNRE Approved Solar Energy Contractor</p>
+                </div>
+                <div className="flex items-center gap-4 text-[10px] text-slate-400">
+                  <span className="px-2.5 py-1 rounded bg-white/5 border border-white/10">25-Yr Performance Guarantee</span>
+                  <span className="px-2.5 py-1 rounded bg-white/5 border border-white/10">ISO 9001:2015 Certified</span>
+                </div>
               </div>
 
             </div>
