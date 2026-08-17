@@ -69,10 +69,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuote }) => {
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 sm:px-3 sm:py-2 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500 hover:text-white transition-all flex items-center gap-1.5 font-bold text-xs shrink-0"
+              className="p-1.5 sm:px-3 sm:py-2 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500 hover:text-white transition-all flex items-center gap-1.5 font-bold text-xs shrink-0"
               title="WhatsApp Connect"
             >
-              <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+              <img src="/whatsapp-logo.png?v=1" alt="WhatsApp" className="w-5 h-5 object-contain shrink-0" />
               <span className="hidden sm:inline">WhatsApp</span>
             </a>
 
