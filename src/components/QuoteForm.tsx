@@ -47,6 +47,21 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
         origin: { y: 0.6 }
       });
     }
+
+    const text = `*New Solar Quote Request - Sultanpur Solar Panel*\n` +
+                 `----------------------------------\n` +
+                 `👤 *Name:* ${name || 'Customer'}\n` +
+                 `📞 *Phone:* ${phone || 'Not Provided'}\n` +
+                 `📧 *Email:* ${email || 'N/A'}\n` +
+                 `📍 *Address:* ${address || 'Sultanpur'}, PIN: ${pincode}\n` +
+                 `⚡ *Monthly Bill:* ₹${monthlyBill.toLocaleString('en-IN')}\n` +
+                 `🏠 *Property Type:* ${propertyType}\n` +
+                 `☀️ *Selected Service:* ${selectedService}\n` +
+                 `💡 *Recommended System:* ${metrics.systemSizeKw} kW Array\n` +
+                 `----------------------------------\n` +
+                 `Sent via Sultanpur Solar Panel Website`;
+
+    window.open(`https://wa.me/917068286755?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   return (

@@ -1076,29 +1076,52 @@
                 <h2 className="text-3xl sm:text-4xl font-black text-white">Schedule Your Free Rooftop Solar Inspection</h2>
                 <p className="text-slate-300 text-xs sm:text-sm">Fill out the form below or connect directly on WhatsApp to get custom pricing for your home in Sultanpur.</p>
 
-                <form onSubmit={(e) => { e.preventDefault(); handleOpenModal('Contact Form Submitted'); }} className="space-y-4">
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    const form = e.target;
+                    const name = form.elements['fullName'].value;
+                    const phone = form.elements['phone'].value;
+                    const locality = form.elements['locality'].value;
+                    const roofType = form.elements['roofType'].value;
+                    const monthlyBill = form.elements['monthlyBill'].value;
+
+                    const msg = `*New Free Rooftop Inspection Request*\n` +
+                                `----------------------------------\n` +
+                                `👤 *Name:* ${name}\n` +
+                                `📞 *Phone:* ${phone}\n` +
+                                `📍 *Sultanpur Address:* ${locality || 'Sultanpur UP'}\n` +
+                                `🏠 *Roof Type:* ${roofType}\n` +
+                                `⚡ *Monthly Bill:* ${monthlyBill}\n` +
+                                `----------------------------------\n` +
+                                `Sent via Sultanpur Solar Panel Website`;
+
+                    window.open(`https://wa.me/917068286755?text=${encodeURIComponent(msg)}`, '_blank');
+                  }}
+                  className="space-y-4"
+                >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <input type="text" required placeholder="Your Full Name *" className="p-3.5 rounded-xl bg-navy-800 border border-white/15 text-white text-xs placeholder:text-slate-400 focus:outline-none focus:border-solar-orange" />
-                    <input type="tel" required placeholder="Phone / WhatsApp Number *" className="p-3.5 rounded-xl bg-navy-800 border border-white/15 text-white text-xs placeholder:text-slate-400 focus:outline-none focus:border-solar-orange" />
+                    <input name="fullName" type="text" required placeholder="Your Full Name *" className="p-3.5 rounded-xl bg-navy-800 border border-white/15 text-white text-xs placeholder:text-slate-400 focus:outline-none focus:border-solar-orange" />
+                    <input name="phone" type="tel" required placeholder="Phone / WhatsApp Number *" className="p-3.5 rounded-xl bg-navy-800 border border-white/15 text-white text-xs placeholder:text-slate-400 focus:outline-none focus:border-solar-orange" />
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <input type="email" placeholder="Email Address (Optional)" className="p-3.5 rounded-xl bg-navy-800 border border-white/15 text-white text-xs placeholder:text-slate-400 focus:outline-none focus:border-solar-orange" />
-                    <input type="text" placeholder="Sultanpur Locality / Address" className="p-3.5 rounded-xl bg-navy-800 border border-white/15 text-white text-xs placeholder:text-slate-400 focus:outline-none focus:border-solar-orange" />
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <select className="p-3.5 rounded-xl bg-navy-800 border border-white/15 text-slate-200 text-xs focus:outline-none focus:border-solar-orange">
-                      <option>Roof Type: Concrete RCC</option>
-                      <option>Roof Type: Tin / Metal Sheet</option>
-                      <option>Roof Type: Open Terrace</option>
+                    <input name="locality" type="text" required placeholder="Sultanpur Locality / Area (e.g. Mahuwariya) *" className="p-3.5 rounded-xl bg-navy-800 border border-white/15 text-white text-xs placeholder:text-slate-400 focus:outline-none focus:border-solar-orange" />
+                    <select name="roofType" className="p-3.5 rounded-xl bg-navy-800 border border-white/15 text-slate-200 text-xs focus:outline-none focus:border-solar-orange">
+                      <option value="Concrete RCC Roof">Roof Type: Concrete RCC</option>
+                      <option value="Tin / Metal Shed">Roof Type: Tin / Metal Shed</option>
+                      <option value="Open Terrace">Roof Type: Open Terrace</option>
                     </select>
-                    <select className="p-3.5 rounded-xl bg-navy-800 border border-white/15 text-slate-200 text-xs focus:outline-none focus:border-solar-orange">
-                      <option>Monthly Bill: ₹2,000 – ₹5,000</option>
-                      <option>Monthly Bill: ₹5,000 – ₹10,000</option>
-                      <option>Monthly Bill: ₹10,000+</option>
+                  </div>
+                  <div className="grid grid-cols-1 gap-4">
+                    <select name="monthlyBill" className="p-3.5 rounded-xl bg-navy-800 border border-white/15 text-slate-200 text-xs focus:outline-none focus:border-solar-orange">
+                      <option value="₹1,500 – ₹3,000 / mo">Monthly Electricity Bill: ₹1,500 – ₹3,000</option>
+                      <option value="₹3,000 – ₹6,000 / mo">Monthly Electricity Bill: ₹3,000 – ₹6,000</option>
+                      <option value="₹6,000 – ₹10,000 / mo">Monthly Electricity Bill: ₹6,000 – ₹10,000</option>
+                      <option value="₹10,000+ / mo">Monthly Electricity Bill: ₹10,000+</option>
                     </select>
                   </div>
-                  <button type="submit" className="w-full py-4 rounded-xl text-xs font-extrabold text-slate-950 bg-gradient-to-r from-solar-orange via-solar-amber to-solar-yellow shadow-lg flex items-center justify-center gap-2">
-                    Submit Request for Free Inspection <Icon name="send" className="w-4 h-4" />
+                  <button type="submit" className="w-full py-4 rounded-xl text-xs font-extrabold text-slate-950 bg-gradient-to-r from-solar-orange via-solar-amber to-solar-yellow shadow-lg flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-95 transition-all">
+                    <Icon name="message-circle" className="w-4 h-4 text-slate-950" /> Send Details Direct to WhatsApp (+91 70682 86755)
                   </button>
                 </form>
               </div>
@@ -1240,39 +1263,87 @@
             <span className="tracking-wide">WhatsApp Us</span>
           </a>
 
-          {/* MODAL FORM */}
+          {/* MODAL FORM WITH DIRECT WHATSAPP SUBMISSION */}
           {modalOpen && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
-              <div className="relative w-full max-w-lg bg-[#0B1F3A] border border-solar-orange/30 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl">
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
+              <div className="relative w-full max-w-md bg-[#0B1F3A] border border-solar-orange/30 rounded-3xl p-6 sm:p-8 space-y-5 shadow-2xl">
                 <div className="flex justify-between items-center border-b border-white/10 pb-4">
                   <div className="flex items-center gap-3">
                     <img src="official-logo.png?v=3" alt="Official Logo" className="h-10 w-10 object-contain rounded-xl bg-white p-0.5 border border-white/20 shadow-md shrink-0" />
                     <div>
-                      <h3 className="text-xl font-black text-white">Sultanpur Solar Panel</h3>
-                      <p className="text-xs text-slate-300">Mahuwariya, Sultanpur UP 228001 • {PHONE_DISPLAY}</p>
+                      <h3 className="text-lg font-black text-white">Get Free Solar Quote</h3>
+                      <p className="text-[11px] text-amber-400 font-semibold">{modalTopic}</p>
                     </div>
                   </div>
                   <button onClick={() => setModalOpen(false)} className="p-2 rounded-full bg-white/5 text-slate-300 hover:bg-white/10">✕</button>
                 </div>
 
-                <div className="space-y-4 text-xs text-slate-300">
-                  <p className="leading-relaxed">
-                    Connect directly with our senior engineer in Sultanpur for a free rooftop site inspection and PM Surya Ghar subsidy consultation.
-                  </p>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    const form = e.target;
+                    const name = form.elements['modalName'].value;
+                    const phone = form.elements['modalPhone'].value;
+                    const locality = form.elements['modalLocality'].value;
+                    const bill = form.elements['modalBill'].value;
+                    const message = form.elements['modalMsg'].value;
 
-                  <a
-                    href={getWhatsAppUrl(`Namaste Sultanpur Solar Panel! I want a free solar quote (Topic: ${modalTopic}).`)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-4 rounded-xl font-extrabold text-slate-950 bg-gradient-to-r from-solar-orange via-solar-amber to-solar-yellow text-xs flex items-center justify-center gap-2 shadow-lg"
+                    const text = `*New Solar Quote Request (${modalTopic})*\n` +
+                                 `----------------------------------\n` +
+                                 `👤 *Name:* ${name}\n` +
+                                 `📞 *Phone:* ${phone}\n` +
+                                 `📍 *Locality:* ${locality || 'Sultanpur UP'}\n` +
+                                 `⚡ *Monthly Bill:* ${bill}\n` +
+                                 `📝 *Requirement:* ${message || 'Need free solar site inspection'}\n` +
+                                 `----------------------------------\n` +
+                                 `Sent via Sultanpur Solar Panel Website`;
+
+                    window.open(`https://wa.me/917068286755?text=${encodeURIComponent(text)}`, '_blank');
+                    setModalOpen(false);
+                  }}
+                  className="space-y-3 text-xs"
+                >
+                  <div>
+                    <label className="block text-slate-300 font-bold mb-1">Your Full Name *</label>
+                    <input name="modalName" type="text" required placeholder="e.g. Ramesh Singh" className="w-full p-3 rounded-xl bg-navy-800 border border-white/15 text-white placeholder:text-slate-500 focus:outline-none focus:border-solar-orange" />
+                  </div>
+
+                  <div>
+                    <label className="block text-slate-300 font-bold mb-1">Mobile / WhatsApp Number *</label>
+                    <input name="modalPhone" type="tel" required placeholder="e.g. 9876543210" className="w-full p-3 rounded-xl bg-navy-800 border border-white/15 text-white placeholder:text-slate-500 focus:outline-none focus:border-solar-orange" />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2">
+                    <div>
+                      <label className="block text-slate-300 font-bold mb-1">Sultanpur Area</label>
+                      <input name="modalLocality" type="text" placeholder="e.g. Mahuwariya" className="w-full p-3 rounded-xl bg-navy-800 border border-white/15 text-white placeholder:text-slate-500 focus:outline-none focus:border-solar-orange" />
+                    </div>
+                    <div>
+                      <label className="block text-slate-300 font-bold mb-1">Monthly Bill</label>
+                      <select name="modalBill" className="w-full p-3 rounded-xl bg-navy-800 border border-white/15 text-slate-200 focus:outline-none focus:border-solar-orange">
+                        <option value="₹2,000 – ₹5,000">₹2k – ₹5k</option>
+                        <option value="₹5,000 – ₹10,000">₹5k – ₹10k</option>
+                        <option value="₹10,000+">₹10k+</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-slate-300 font-bold mb-1">Additional Requirement / Note</label>
+                    <textarea name="modalMsg" rows="2" placeholder="e.g. Need 5kW system for 2-floor house" className="w-full p-3 rounded-xl bg-navy-800 border border-white/15 text-white placeholder:text-slate-500 focus:outline-none focus:border-solar-orange resize-none"></textarea>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full py-3.5 rounded-xl font-extrabold text-slate-950 bg-gradient-to-r from-solar-orange via-solar-amber to-solar-yellow text-xs flex items-center justify-center gap-2 shadow-lg hover:scale-[1.02] active:scale-95 transition-all mt-2"
                   >
-                    <Icon name="message-circle" className="w-4 h-4 text-slate-950" /> Connect Direct on WhatsApp ({PHONE_DISPLAY})
-                  </a>
-
-                  <button onClick={() => setModalOpen(false)} className="w-full py-3 rounded-xl font-semibold text-slate-300 bg-white/5 border border-white/10 text-xs">
-                    Close Window
+                    <Icon name="message-circle" className="w-4 h-4 text-slate-950" /> Send Details to WhatsApp (+91 70682 86755)
                   </button>
-                </div>
+
+                  <button type="button" onClick={() => setModalOpen(false)} className="w-full py-2.5 rounded-xl font-semibold text-slate-400 bg-white/5 border border-white/10 text-xs">
+                    Cancel
+                  </button>
+                </form>
               </div>
             </div>
           )}
