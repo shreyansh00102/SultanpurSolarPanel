@@ -1,78 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  
-  <!-- Main Home Page -->
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://sultanpur-solar-panel.vercel.app/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.00</priority>
+    <image:image>
+      <image:loc>https://sultanpur-solar-panel.vercel.app/official-logo.png</image:loc>
+      <image:title>Sultanpur Solar Panel Official Logo</image:title>
+      <image:caption>Sultanpur Solar Panel - Powering Sultanpur, Energizing Future</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://sultanpur-solar-panel.vercel.app/residential_install.jpg</image:loc>
+      <image:title>Solar Panel Installation Mahuwariya Sultanpur UP</image:title>
+      <image:caption>Rooftop solar installation in Sultanpur UP 228001</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://sultanpur-solar-panel.vercel.app/house1.png</image:loc>
+      <image:title>Residential Solar Panel Installation Sultanpur</image:title>
+      <image:caption>Residential rooftop solar project Sultanpur</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://sultanpur-solar-panel.vercel.app/house2.png</image:loc>
+      <image:title>On-Grid Solar System Sultanpur</image:title>
+      <image:caption>On-grid net-metering solar system in Sultanpur</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://sultanpur-solar-panel.vercel.app/house3.png</image:loc>
+      <image:title>Commercial Solar Plant Sultanpur</image:title>
+      <image:caption>Commercial rooftop solar project in Sultanpur</image:caption>
+    </image:image>
   </url>
-
-  <!-- How Solar Works Section -->
-  <url>
-    <loc>https://sultanpur-solar-panel.vercel.app/#how-it-works</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- Panel Types Comparison -->
-  <url>
-    <loc>https://sultanpur-solar-panel.vercel.app/#panel-types</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- System Anatomy & Hardware Components -->
-  <url>
-    <loc>https://sultanpur-solar-panel.vercel.app/#components</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- Solar Sizing & PM Surya Ghar Subsidy Calculator -->
-  <url>
-    <loc>https://sultanpur-solar-panel.vercel.app/#calculator</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <!-- Sultanpur Projects & Case Studies -->
-  <url>
-    <loc>https://sultanpur-solar-panel.vercel.app/#case-studies</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Myths vs Facts Accordion -->
-  <url>
-    <loc>https://sultanpur-solar-panel.vercel.app/#myths</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-
-  <!-- Frequently Asked Questions (FAQs) -->
-  <url>
-    <loc>https://sultanpur-solar-panel.vercel.app/#faqs</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- 1-Minute Solar Readiness Quiz -->
-  <url>
-    <loc>https://sultanpur-solar-panel.vercel.app/#quiz</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
 </urlset>

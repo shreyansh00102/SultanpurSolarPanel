@@ -19,7 +19,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote }) => {
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="flex items-center gap-3 cursor-pointer"
             >
-              <img src="/official-logo.png?v=3" alt="Sultanpur Solar Panel Official Logo" className="h-12 w-12 object-contain rounded-xl bg-white p-0.5 border border-white/20 shadow-md shrink-0" />
+              <img src="/official-logo.png?v=4" alt="Sultanpur Solar Panel Official Logo" className="h-12 w-12 object-contain rounded-xl bg-white/5 p-0.5 border border-white/20 shadow-md shrink-0" />
               <div>
                 <span className="font-black text-lg block leading-tight uppercase">
                   <span className="text-[#FF9933]">SULTANPUR </span>

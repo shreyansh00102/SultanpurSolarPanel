@@ -86,6 +86,27 @@ export const App: React.FC = () => {
       {/* Mobile Sticky CTA Bar */}
       <MobileStickyCTA onOpenQuote={() => handleOpenQuote()} />
 
+      {/* Floating WhatsApp Quick Connect Widget */}
+      <a
+        href="https://wa.me/917068286755?text=Namaste%20Sultanpur%20Solar%20Panel!%20I%20want%20a%20free%20solar%20quote."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-16 md:bottom-6 right-4 md:right-6 z-40 md:z-50 p-2.5 md:p-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-green-600 text-white shadow-2xl shadow-emerald-500/40 hover:scale-105 active:scale-95 border border-emerald-400/50 flex items-center gap-2.5 transition-all group backdrop-blur-md"
+        title="Chat on WhatsApp (+91 70682 86755)"
+      >
+        <div className="relative">
+          <img src="/whatsapp-logo.png?v=5" alt="WhatsApp Logo" className="w-7 h-7 object-contain rounded-lg drop-shadow group-hover:rotate-12 transition-transform" />
+          <span className="absolute -top-1 -right-1 flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+          </span>
+        </div>
+        <div className="hidden sm:flex flex-col text-left">
+          <span className="text-[11px] font-black leading-tight text-white">Chat on WhatsApp</span>
+          <span className="text-[9px] text-emerald-100 font-semibold">+91 70682 86755</span>
+        </div>
+      </a>
+
       {/* Quote Request Multi-Step Modal */}
       <QuoteForm
         isOpen={quoteOpen}
